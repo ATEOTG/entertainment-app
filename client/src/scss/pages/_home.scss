@@ -1,8 +1,19 @@
-@import "../abstracts/mixins";
+@import "../abstracts/mixins", "../pages/homeAll";
+
+.home-result-cont {
+  @include marginCenter;
+
+  .title {
+    font-size: 2rem;
+    font-weight: weight(regular);
+    color: $primary-white;
+  }
+}
 
 .search-cont {
   @include marginCenter;
   margin-top: 3rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   gap: 2rem;

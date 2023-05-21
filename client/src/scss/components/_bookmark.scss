@@ -1,0 +1,16 @@
+.bookmark-cont {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+
+  .bookmark-circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

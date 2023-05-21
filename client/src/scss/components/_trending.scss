@@ -1,0 +1,29 @@
+.trending-all-cont {
+  display: flex;
+  gap: 1.7rem;
+  overflow: scroll;
+}
+
+.trending-comp {
+  margin-top: 2rem;
+  .trending-cont {
+    position: relative;
+    width: 24rem;
+    height: 14rem;
+  }
+
+  .trending-text-cont {
+    @include borderRadius;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background: linear-gradient(transparent, 75%, rgba(0, 0, 0, 0.801));
+  }
+}
+
+.trending-img {
+  @include borderRadius;
+  width: 24rem;
+  height: 14rem;
+  position: absolute;
+}

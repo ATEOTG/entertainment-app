@@ -5,7 +5,7 @@ interface SearchFormProps {
 }
 
 function SearchForm(props: SearchFormProps) {
-  const placeholderText =
+  const placeholderText: string =
     props.pathText === "/home/all"
       ? "Search for movies or TV series"
       : props.pathText === "/home/movies"

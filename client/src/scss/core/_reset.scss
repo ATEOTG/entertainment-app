@@ -8,9 +8,10 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Outfit", sans-serif;
+  overflow: hidden;
 }
 
 body {
   background-color: $primary-dark-blue;
+  font-family: "Outfit", sans-serif;
 }

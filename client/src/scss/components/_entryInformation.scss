@@ -1,0 +1,45 @@
+.margin-top-entry {
+  margin-top: 9rem;
+}
+
+.entry-information {
+  margin-left: 1.5rem;
+
+  #{&}__text-rating {
+    margin-left: 0.3rem;
+  }
+
+  #{&}__title {
+    font-size: 1.5rem;
+    color: $primary-white;
+  }
+
+  #{&}__text-category-cont {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 70%;
+    color: $primary-white;
+    li {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+    }
+    svg {
+      scale: 0.6;
+      path {
+        fill: $primary-white;
+      }
+    }
+
+    p {
+      color: $primary-white;
+      font-size: 1.2rem;
+    }
+  }
+}
