@@ -12,3 +12,14 @@
   width: 92%;
   margin: 0 auto;
 }
+
+@mixin form {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.7rem;
+  font-weight: weight(regular);
+  color: $primary-white;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  caret-color: $primary-red;
+}

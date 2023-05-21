@@ -9,14 +9,7 @@
 
   .search-form {
     &__input {
-      font-family: "Outfit", sans-serif;
-      font-size: 1.7rem;
-      font-weight: weight(regular);
-      color: $primary-white;
-      background-color: transparent;
-      border: none;
-      outline: none;
-      caret-color: $primary-red;
+      @include form;
     }
   }
 }
