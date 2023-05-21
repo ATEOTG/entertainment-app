@@ -1,0 +1,32 @@
+@import "../abstracts/variables";
+
+.navigation {
+  @include flexHorizontal;
+  align-items: center;
+  background-color: $primary-semi-dark-blue;
+  padding: 1.5rem;
+
+  ul {
+    @include flexHorizontal;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .avatar-circle {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: $primary-white;
+    border-radius: 50%;
+  }
+}
+
+.navInactive {
+  path {
+    fill: $primary-grey-blue;
+  }
+}
+
+.navActive {
+  path {
+    fill: $primary-white;
+  }
+}
