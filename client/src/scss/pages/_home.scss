@@ -1,0 +1,22 @@
+@import "../abstracts/mixins";
+
+.search-cont {
+  @include marginCenter;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  .search-form {
+    &__input {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.7rem;
+      font-weight: weight(regular);
+      color: $primary-white;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      caret-color: $primary-red;
+    }
+  }
+}

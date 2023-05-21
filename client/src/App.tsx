@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <main>
         <Routes>
-          <Route path="/" element={<Navigate replace to="/home" />} />{" "}
+          <Route path="/" element={<Navigate replace to="/home/all" />} />{" "}
           <Route path="/home/*" element={<Home />} />
         </Routes>
       </main>
