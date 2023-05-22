@@ -2,6 +2,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navigation from "../components/Navigation/Navigation";
 import SearchForm from "../components/Form/SearchForm";
 import HomeAll from "./HomeAll";
+import HomeMovies from "./HomeMovies";
+import HomeTV from "./HomeTV";
+import HomeBookmark from "./HomeBookmark";
 
 function Home() {
   const location = useLocation();
@@ -25,6 +28,9 @@ function Home() {
 
         <Routes>
           <Route path="all" element={<HomeAll />} />
+          <Route path="movies" element={<HomeMovies />} />
+          <Route path="television" element={<HomeTV />} />
+          <Route path="bookmark" element={<HomeBookmark />} />
         </Routes>
       </div>
     </div>
