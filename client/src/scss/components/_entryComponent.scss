@@ -1,0 +1,21 @@
+.entry-cont {
+  position: relative;
+  height: 11rem;
+
+  .entry-inner-div {
+    position: absolute;
+  }
+  .entry-img {
+    @include borderRadius;
+    width: 16.4rem;
+    height: 11rem;
+  }
+}
+
+.entry-text-cont {
+  margin-top: 1rem;
+
+  .entry-information {
+    margin-left: 0rem;
+  }
+}
