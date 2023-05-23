@@ -12,7 +12,13 @@ function EntryComponent() {
         </div>
       </div>
       <div className="entry-text-cont">
-        <EntryInformation trendingComp={false} />
+        <EntryInformation
+          trendingComp={false}
+          title=""
+          year={1}
+          category=""
+          rating=""
+        />
       </div>
     </div>
   );

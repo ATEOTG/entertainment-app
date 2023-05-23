@@ -1,15 +1,37 @@
-import art1 from "../../assets/thumbnails/1998/trending/small.jpg";
 import BookmarkComponent from "../BookmarkComponent";
 import EntryInformation from "../EntryInformation";
 
-function TrendingComponent() {
+interface TrendingComponentProps {
+  key: string;
+  title: string;
+  year: number;
+  category: string;
+  rating: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
+  thumbnail: string;
+}
+
+function TrendingComponent(props: TrendingComponentProps) {
+  const imgPath = props.thumbnail.split("./assets/thumbnails/")[1];
+
   return (
     <div className="trending-comp">
       <div className="trending-cont">
-        <img className="trending-img" src={art1} alt="" />
+        <img
+          className="trending-img"
+          src={require(`../../assets/thumbnails/${imgPath}`)}
+          alt={`Thumbnail of the ${props.title} ${props.category}`}
+        />
         <BookmarkComponent />
         <div className="trending-text-cont">
-          <EntryInformation trendingComp={true} />
+          <EntryInformation
+            trendingComp={true}
+            title={props.title}
+            year={props.year}
+            category={props.category}
+            rating={props.rating}
+          />
         </div>
       </div>
     </div>

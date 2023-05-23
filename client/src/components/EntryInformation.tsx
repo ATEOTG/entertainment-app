@@ -1,8 +1,13 @@
 import { Fragment } from "react";
 import NavMoviesIcon from "./svg/NavMoviesIcon";
+import NavTvIcon from "./svg/NavTvIcon";
 
 interface EntryInformationProps {
   trendingComp: boolean;
+  title: string;
+  year: number;
+  category: string;
+  rating: string;
 }
 
 function EntryInformation(props: EntryInformationProps) {
@@ -16,21 +21,24 @@ function EntryInformation(props: EntryInformationProps) {
       <div className="entry-information">
         <div className="entry-information__text">
           <ul>
-            <p className="entry-information__text-year">2019</p>
+            <p className="entry-information__text-year">{props.year}</p>
             <li>
               &bull;
               <div className="entry-information__text-category-cont">
-                <NavMoviesIcon />
-                <p className="entry-information__text-category">Movies</p>
+                {props.category === "Movie" ? <NavMoviesIcon /> : <NavTvIcon />}
+
+                <p className="entry-information__text-category">
+                  {props.category}
+                </p>
               </div>
             </li>
             <li>
               &bull;
-              <p className="entry-information__text-rating">PG</p>
+              <p className="entry-information__text-rating">{props.rating}</p>
             </li>
           </ul>
         </div>
-        <p className="entry-information__title">Beyond Earth</p>
+        <p className="entry-information__title">{props.title}</p>
       </div>
     </Fragment>
   );
