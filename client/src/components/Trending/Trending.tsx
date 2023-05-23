@@ -7,7 +7,7 @@ function Trending() {
 
   useEffect(() => {
     async function initTrending() {
-      const response = await fetch("/api/v1/home-all/trending");
+      const response = await fetch("/api/v1/home/trending");
       const data = await response.json();
 
       setTrendingData(data.data);

@@ -8,11 +8,10 @@ function HomeAll() {
 
   useEffect(() => {
     async function initGetMediaData() {
-      const response = await fetch("/api/v1/home-all");
+      const response = await fetch("/api/v1/home");
       const data = await response.json();
 
       setMediaData(data.data);
-      console.log(data.data);
     }
 
     initGetMediaData();
@@ -36,9 +35,6 @@ function HomeAll() {
             />
           );
         })}
-
-        {/* <EntryComponent />
-        <EntryComponent /> */}
       </div>
     </div>
   );
