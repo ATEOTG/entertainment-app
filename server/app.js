@@ -4,7 +4,7 @@ const mediaEntryRouter = require("./routes/mediaEntryRoutes");
 const app = express();
 app.enable("trust proxy");
 
-app.use("/api/v1/home-all", mediaEntryRouter);
+app.use("/api/v1/home", mediaEntryRouter);
 
 app.get("/api", (req, res) => {
   res.status(241).json({ users: [1, 2, 3] });
