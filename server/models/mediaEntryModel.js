@@ -21,6 +21,17 @@ const mediaEntrySchema = new mongoose.Schema(
         message: "An entry must have a rating of PG, E, or 18+",
       },
     },
+    thumbnail: {
+      trending: {
+        small: String,
+        large: String,
+      },
+      regular: {
+        small: String,
+        medium: String,
+        large: String,
+      },
+    },
     isBookmarked: Boolean,
     isTrending: Boolean,
   },
