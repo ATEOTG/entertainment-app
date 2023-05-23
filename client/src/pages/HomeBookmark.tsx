@@ -5,9 +5,9 @@ function HomeBookmark() {
   return (
     <Fragment>
       <div className="entry-display">
+        {/* <EntryComponent />
         <EntryComponent />
-        <EntryComponent />
-        <EntryComponent />
+        <EntryComponent /> */}
       </div>
     </Fragment>
   );
