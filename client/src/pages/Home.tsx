@@ -5,7 +5,7 @@ import HomeAll from "./HomeAll";
 import HomeMovies from "./HomeMovies";
 import HomeTV from "./HomeTV";
 import HomeBookmark from "./HomeBookmark";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { EntryObject } from "../interface";
 
 async function initGetMediaData(
@@ -16,21 +16,30 @@ async function initGetMediaData(
   const searchString = searchValue.toLowerCase();
   const response = await fetch(url);
   const data = await response.json();
-
-  if (searchString.trim() === "") setState(data.data);
+  const length = data.data.length;
+  if (searchString.trim() === "") setState({ entry: data.data, length });
   else {
     data.data = data.data.filter((el: EntryObject) =>
       el.title.toLowerCase().includes(searchString.toLowerCase())
     );
-    setState(data.data);
+    setState({ entry: data.data, length });
   }
 }
 
 function Home() {
   const textInputRef = useRef<HTMLInputElement>(null);
-  const [allMediaData, setMediaData] = useState<EntryObject[]>([]);
-  const [movieData, setMovieData] = useState<EntryObject[]>([]);
-  const [tvData, setTvData] = useState<EntryObject[]>([]);
+  const [allMediaData, setMediaData] = useState<{
+    entry: EntryObject[];
+    length: number;
+  }>({ entry: [], length: 0 });
+  const [movieData, setMovieData] = useState<{
+    entry: EntryObject[];
+    length: number;
+  }>({ entry: [], length: 0 });
+  const [tvData, setTvData] = useState<{
+    entry: EntryObject[];
+    length: number;
+  }>({ entry: [], length: 0 });
 
   const location = useLocation();
   const path = location.pathname;
@@ -71,7 +80,11 @@ function Home() {
         onSubmitHandler={onSubmitInputHandler}
       />
       <div className="home-result-cont">
-        <h2 className="title">{titleText}</h2>
+        {textInputRef.current?.value === "" ? (
+          <h2 className="title">{titleText}</h2>
+        ) : (
+          <Fragment></Fragment>
+        )}
 
         <Routes>
           <Route

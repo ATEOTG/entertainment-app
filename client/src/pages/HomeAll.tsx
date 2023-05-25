@@ -1,14 +1,24 @@
+import { Fragment } from "react";
 import EntryComponent from "../components/EntryComponent";
 import Trending from "../components/Trending/Trending";
 import { HomeProps } from "../interface";
 
 function HomeAll(props: HomeProps) {
+  const isAll = props.mediaData.length === props.mediaData.entry.length;
   return (
     <div>
-      <Trending />
-      <h2 className="all-title">Recommended for you</h2>
+      {isAll ? <Trending /> : <Fragment></Fragment>}
+      {isAll ? (
+        <h2 className="all-title">Recommended for you</h2>
+      ) : (
+        <h2 className="all-title">
+          Found {props.mediaData.entry.length} results for '
+          {props.textInput.current!.value}'
+        </h2>
+      )}
+
       <div className="entry-display">
-        {props.mediaData.map((el) => {
+        {props.mediaData.entry.map((el) => {
           return (
             <EntryComponent
               title={el.title}
