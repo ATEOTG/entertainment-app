@@ -2,6 +2,8 @@ import SearchIcon from "../svg/SearchIcon";
 
 interface SearchFormProps {
   pathText: string;
+  textRef: React.RefObject<HTMLInputElement>;
+  onSubmitHandler: (event: React.FormEvent) => void;
 }
 
 function SearchForm(props: SearchFormProps) {
@@ -16,12 +18,13 @@ function SearchForm(props: SearchFormProps) {
   return (
     <div className="search-cont">
       <SearchIcon />
-      <form className="search-form">
+      <form className="search-form" onSubmit={props.onSubmitHandler}>
         <input
           className="search-form__input"
           type="text"
           name="search"
           id="search"
+          ref={props.textRef}
           placeholder={placeholderText}
         />
       </form>
