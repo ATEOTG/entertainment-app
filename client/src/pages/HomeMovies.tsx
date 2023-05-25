@@ -1,24 +1,10 @@
 import EntryComponent from "../components/EntryComponent";
-import { useState, useEffect } from "react";
-import { EntryObject } from "../interface";
+import { HomeProps } from "../interface";
 
-function HomeMovies() {
-  const [movieData, setMovieData] = useState<EntryObject[]>([]);
-
-  useEffect(() => {
-    async function initGetMovies() {
-      const response = await fetch("/api/v1/home/movies");
-      const data = await response.json();
-
-      setMovieData(data.data);
-      console.log(data.data);
-    }
-
-    initGetMovies();
-  }, []);
+function HomeMovies(props: HomeProps) {
   return (
     <div className="entry-display">
-      {movieData.map((el) => {
+      {props.mediaData.map((el) => {
         return (
           <EntryComponent
             title={el.title}

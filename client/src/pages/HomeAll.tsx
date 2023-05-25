@@ -1,28 +1,14 @@
-import { useState, useEffect } from "react";
 import EntryComponent from "../components/EntryComponent";
 import Trending from "../components/Trending/Trending";
-import { EntryObject } from "../interface";
+import { HomeProps } from "../interface";
 
-function HomeAll() {
-  const [allMediaData, setMediaData] = useState<EntryObject[]>([]);
-
-  useEffect(() => {
-    async function initGetMediaData() {
-      const response = await fetch("/api/v1/home");
-      const data = await response.json();
-
-      setMediaData(data.data);
-    }
-
-    initGetMediaData();
-  }, []);
-
+function HomeAll(props: HomeProps) {
   return (
     <div>
       <Trending />
       <h2 className="all-title">Recommended for you</h2>
       <div className="entry-display">
-        {allMediaData.map((el) => {
+        {props.mediaData.map((el) => {
           return (
             <EntryComponent
               title={el.title}

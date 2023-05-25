@@ -18,3 +18,8 @@ export interface EntryObject {
     };
   };
 }
+
+export interface HomeProps {
+  textInput: React.RefObject<HTMLInputElement>;
+  mediaData: EntryObject[];
+}
