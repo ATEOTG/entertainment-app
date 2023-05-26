@@ -13,6 +13,23 @@ exports.getAllMediaEntries = async (req, res, next) => {
   }
 };
 
+exports.updateMediaBookmark = async (req, res) => {
+  try {
+    const media = await Media.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        media,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.getAllMovieMediaEntries = async (req, res, next) => {
   try {
     const data = await Media.find({
