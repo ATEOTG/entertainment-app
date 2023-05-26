@@ -2,12 +2,14 @@ import { Fragment } from "react";
 import BookmarkIconEmpty from "./BookmarkIconEmpty";
 import BookmarkIconFull from "./BookmarkIconFull";
 
-function BookmarkIcon() {
-  const testIcon = true;
+interface BookMarkIconProps {
+  isBookmarked: boolean;
+}
 
+function BookmarkIcon(props: BookMarkIconProps) {
   return (
     <Fragment>
-      {testIcon ? <BookmarkIconEmpty /> : <BookmarkIconFull />}
+      {props.isBookmarked ? <BookmarkIconFull /> : <BookmarkIconEmpty />}
     </Fragment>
   );
 }

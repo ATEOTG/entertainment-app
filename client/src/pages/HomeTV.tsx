@@ -26,6 +26,7 @@ function HomeTV(props: HomeProps) {
               thumbnail={el.thumbnail.regular.small}
               isBookmarked={el.isBookmarked}
               key={el.id}
+              id={el.id}
             />
           );
         })}

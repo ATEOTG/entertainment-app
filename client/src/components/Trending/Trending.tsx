@@ -29,6 +29,7 @@ function Trending() {
             isBookmarked={el.isBookmarked}
             thumbnail={el.thumbnail.trending.small}
             key={el.id}
+            id={el.id}
           />
         );
       })}

@@ -10,6 +10,7 @@ interface TrendingComponentProps {
   isBookmarked: boolean;
   isTrending: boolean;
   thumbnail: string;
+  id: string;
 }
 
 function TrendingComponent(props: TrendingComponentProps) {
@@ -23,7 +24,7 @@ function TrendingComponent(props: TrendingComponentProps) {
           src={require(`../../assets/thumbnails/${imgPath}`)}
           alt={`Thumbnail of the ${props.title} ${props.category}`}
         />
-        <BookmarkComponent />
+        <BookmarkComponent isBookmarked={props.isBookmarked} id={props.id} />
         <div className="trending-text-cont">
           <EntryInformation
             trendingComp={true}
