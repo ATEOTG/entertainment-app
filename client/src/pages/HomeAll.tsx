@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import EntryComponent from "../components/EntryComponent";
 import Trending from "../components/Trending/Trending";
 import { HomeProps } from "../interface";
