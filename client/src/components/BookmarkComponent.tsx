@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookmarkIcon from "./svg/BookmarkIcon";
 
 interface BookMarkComponentProps {
@@ -22,13 +22,15 @@ function BookmarkComponent(props: BookMarkComponentProps) {
     props.isBookmarked
   );
 
+  useEffect(() => {
+    setBookMarkedState(props.isBookmarked);
+  }, [props.isBookmarked]);
+
   function bookMarkClickHandler() {
-    setBookMarkedState(!bookMarkedState);
-    updateIsBookmark(props.id, !bookMarkedState);
-    console.log(bookMarkedState);
+    updateIsBookmark(props.id, !props.isBookmarked);
+    setBookMarkedState((prevState) => !prevState);
   }
 
-  if (props.id === "6470ff2e471b3f3dd08d6b0e") console.log(bookMarkedState);
   return (
     <div className="bookmark-cont" onClick={bookMarkClickHandler}>
       <div className="bookmark-circle">
