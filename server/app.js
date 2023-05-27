@@ -3,7 +3,7 @@ const mediaEntryRouter = require("./routes/mediaEntryRoutes");
 
 const app = express();
 app.enable("trust proxy");
-app.use(express.json({ limit: "10kb" }));
+app.use(express.json());
 
 app.use("/api/v1/home", mediaEntryRouter);
 

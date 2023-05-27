@@ -74,3 +74,16 @@ exports.getTrendingEntries = async (req, res, next) => {
     console.log(err);
   }
 };
+
+exports.getBookmarkedEntries = async (req, res) => {
+  try {
+    const data = await Media.find({ isBookmarked: true });
+
+    res.status(200).json({
+      status: "success",
+      data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

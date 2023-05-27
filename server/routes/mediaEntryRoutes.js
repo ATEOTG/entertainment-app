@@ -8,5 +8,6 @@ router.route("/:id").patch(mediaEntryController.updateMediaBookmark);
 router.route("/trending").get(mediaEntryController.getTrendingEntries);
 router.route("/movies").get(mediaEntryController.getAllMovieMediaEntries);
 router.route("/tv").get(mediaEntryController.getAllTvMediaEntries);
+router.route("/bookmarked").get(mediaEntryController.getBookmarkedEntries);
 
 module.exports = router;
