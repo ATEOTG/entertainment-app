@@ -16,16 +16,17 @@ function HomeBookmark(props: HomeProps) {
       <div className="entry-display">
         {movieEntries.map((el) => {
           return (
-            <EntryComponent
-              title={el.title}
-              year={el.year}
-              category={el.category}
-              rating={el.rating}
-              thumbnail={el.thumbnail.regular.small}
-              isBookmarked={el.isBookmarked}
-              key={el.id}
-              id={el.id}
-            />
+            <div key={el.id + "bookmark"}>
+              <EntryComponent
+                title={el.title}
+                year={el.year}
+                category={el.category}
+                rating={el.rating}
+                thumbnail={el.thumbnail.regular.small}
+                isBookmarked={el.isBookmarked}
+                id={el.id}
+              />
+            </div>
           );
         })}
       </div>
@@ -33,16 +34,17 @@ function HomeBookmark(props: HomeProps) {
       <div className="entry-display">
         {tvEntries.map((el) => {
           return (
-            <EntryComponent
-              title={el.title}
-              year={el.year}
-              category={el.category}
-              rating={el.rating}
-              thumbnail={el.thumbnail.regular.small}
-              isBookmarked={el.isBookmarked}
-              key={el.id}
-              id={el.id}
-            />
+            <div key={el.id + "bookmark"}>
+              <EntryComponent
+                title={el.title}
+                year={el.year}
+                category={el.category}
+                rating={el.rating}
+                thumbnail={el.thumbnail.regular.small}
+                isBookmarked={el.isBookmarked}
+                id={el.id}
+              />
+            </div>
           );
         })}
       </div>

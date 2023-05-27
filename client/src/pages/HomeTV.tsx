@@ -18,16 +18,17 @@ function HomeTV(props: HomeProps) {
       <div className="entry-display">
         {props.mediaData.entry.map((el) => {
           return (
-            <EntryComponent
-              title={el.title}
-              year={el.year}
-              category={el.category}
-              rating={el.rating}
-              thumbnail={el.thumbnail.regular.small}
-              isBookmarked={el.isBookmarked}
-              key={el.id}
-              id={el.id}
-            />
+            <div key={el.id + "tv"}>
+              <EntryComponent
+                title={el.title}
+                year={el.year}
+                category={el.category}
+                rating={el.rating}
+                thumbnail={el.thumbnail.regular.small}
+                isBookmarked={el.isBookmarked}
+                id={el.id}
+              />
+            </div>
           );
         })}
       </div>

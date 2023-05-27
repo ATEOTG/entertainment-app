@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import EntryComponent from "../components/EntryComponent";
 import Trending from "../components/Trending/Trending";
 import { HomeProps } from "../interface";
@@ -21,16 +21,17 @@ function HomeAll(props: HomeProps) {
       <div className="entry-display">
         {props.mediaData.entry.map((el) => {
           return (
-            <EntryComponent
-              title={el.title}
-              year={el.year}
-              category={el.category}
-              rating={el.rating}
-              thumbnail={el.thumbnail.regular.small}
-              isBookmarked={el.isBookmarked}
-              key={el.id}
-              id={el.id}
-            />
+            <div key={el.id + "all"}>
+              <EntryComponent
+                title={el.title}
+                year={el.year}
+                category={el.category}
+                rating={el.rating}
+                thumbnail={el.thumbnail.regular.small}
+                isBookmarked={el.isBookmarked}
+                id={el.id}
+              />
+            </div>
           );
         })}
       </div>
