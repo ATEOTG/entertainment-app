@@ -40,6 +40,10 @@ function Home() {
     entry: EntryObject[];
     length: number;
   }>({ entry: [], length: 0 });
+  const [bookmarkData, setBookmarkData] = useState<{
+    entry: EntryObject[];
+    length: number;
+  }>({ entry: [], length: 0 });
 
   const location = useLocation();
   const path = location.pathname;
@@ -51,7 +55,7 @@ function Home() {
       ? "Movies"
       : path === "/home/television"
       ? "TV Series"
-      : "Bookmarked Movies";
+      : "";
 
   function onSubmitInputHandler(event: React.FormEvent) {
     event.preventDefault();
@@ -62,6 +66,8 @@ function Home() {
       initGetMediaData("/api/v1/home/movies", enteredText, setMovieData);
     else if (path === "/home/television")
       initGetMediaData("/api/v1/home/tv", enteredText, setTvData);
+    else if (path === "/home/bookmark")
+      initGetMediaData("/api/v1/home/bookmarked", enteredText, setBookmarkData);
   }
   useEffect(() => {
     if (path === "/home/all") {
@@ -70,6 +76,8 @@ function Home() {
       initGetMediaData("/api/v1/home/movies", "", setMovieData);
     else if (path === "/home/television")
       initGetMediaData("/api/v1/home/tv", "", setTvData);
+    else if (path === "/home/bookmark")
+      initGetMediaData("/api/v1/home/bookmarked", "", setBookmarkData);
   }, [path]);
   return (
     <div className="home-cont">
@@ -103,7 +111,12 @@ function Home() {
             path="television"
             element={<HomeTV textInput={textInputRef} mediaData={tvData} />}
           />
-          <Route path="bookmark" element={<HomeBookmark />} />
+          <Route
+            path="bookmark"
+            element={
+              <HomeBookmark mediaData={bookmarkData} textInput={textInputRef} />
+            }
+          />
         </Routes>
       </div>
     </div>
