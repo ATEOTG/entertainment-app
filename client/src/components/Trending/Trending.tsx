@@ -20,7 +20,7 @@ function Trending(props: TrendingProps) {
             isTrending={el.isTrending}
             isBookmarked={el.isBookmarked}
             thumbnail={el.thumbnail.trending.small}
-            key={el.id}
+            key={el.id + "trending"}
             id={el.id}
           />
         );
