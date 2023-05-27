@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import BookmarkComponent from "./BookmarkComponent";
 import EntryInformation from "./EntryInformation";
 
@@ -8,14 +9,13 @@ interface EntryComponentProps {
   rating: string;
   thumbnail: string;
   isBookmarked: boolean;
-  key: string;
   id: string;
 }
 
 function EntryComponent(props: EntryComponentProps) {
   const imgPath = props.thumbnail.split("./assets/thumbnails/")[1];
   return (
-    <div>
+    <Fragment>
       <div className="entry-cont">
         <div className="entry-inner-div">
           <img
@@ -35,7 +35,7 @@ function EntryComponent(props: EntryComponentProps) {
           rating={props.rating}
         />
       </div>
-    </div>
+    </Fragment>
   );
 }
 
