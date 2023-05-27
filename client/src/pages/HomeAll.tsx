@@ -5,9 +5,10 @@ import { HomeProps } from "../interface";
 
 function HomeAll(props: HomeProps) {
   const isAll = props.mediaData.length === props.mediaData.entry.length;
+
   return (
     <div>
-      {isAll ? <Trending /> : <Fragment></Fragment>}
+      {isAll ? <Trending mediaData={props.mediaData} /> : <Fragment></Fragment>}
       {isAll ? (
         <h2 className="all-title">Recommended for you</h2>
       ) : (

@@ -25,8 +25,10 @@ function BookmarkComponent(props: BookMarkComponentProps) {
   function bookMarkClickHandler() {
     setBookMarkedState(!bookMarkedState);
     updateIsBookmark(props.id, !bookMarkedState);
+    console.log(bookMarkedState);
   }
 
+  if (props.id === "6470ff2e471b3f3dd08d6b0e") console.log(bookMarkedState);
   return (
     <div className="bookmark-cont" onClick={bookMarkClickHandler}>
       <div className="bookmark-circle">

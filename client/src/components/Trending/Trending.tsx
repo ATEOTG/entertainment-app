@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
 import TrendingComponent from "./TrendingComponent";
 import { EntryObject } from "../../interface";
 
-function Trending() {
-  const [trendingData, setTrendingData] = useState<EntryObject[]>([]);
+export interface TrendingProps {
+  mediaData: { entry: EntryObject[]; length: number };
+}
 
-  useEffect(() => {
-    async function initTrending() {
-      const response = await fetch("/api/v1/home/trending");
-      const data = await response.json();
-
-      setTrendingData(data.data);
-    }
-
-    initTrending();
-  }, []);
+function Trending(props: TrendingProps) {
+  const trendingData = props.mediaData.entry.filter((el) => el.isTrending);
 
   return (
     <div className="trending-all-cont">
