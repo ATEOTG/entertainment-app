@@ -72,12 +72,17 @@ function Home() {
   useEffect(() => {
     if (path === "/home/all") {
       initGetMediaData("/api/v1/home", "", setMediaData);
-    } else if (path === "/home/movies")
+      textInputRef.current!.value = "";
+    } else if (path === "/home/movies") {
       initGetMediaData("/api/v1/home/movies", "", setMovieData);
-    else if (path === "/home/television")
+      textInputRef.current!.value = "";
+    } else if (path === "/home/television") {
       initGetMediaData("/api/v1/home/tv", "", setTvData);
-    else if (path === "/home/bookmark")
+      textInputRef.current!.value = "";
+    } else if (path === "/home/bookmark") {
       initGetMediaData("/api/v1/home/bookmarked", "", setBookmarkData);
+      textInputRef.current!.value = "";
+    }
   }, [path]);
   return (
     <div className="home-cont">
