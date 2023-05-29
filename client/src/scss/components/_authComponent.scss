@@ -1,0 +1,61 @@
+.auth-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  .form-cont {
+    @include borderRadius;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem 2rem;
+    align-self: stretch;
+    background-color: $primary-semi-dark-blue;
+
+    h1 {
+      color: $primary-white;
+      font-size: 3.2rem;
+      font-weight: weight(regular);
+    }
+
+    p {
+      color: $primary-white;
+      font-size: 1.5rem;
+      text-align: center;
+
+      a {
+        color: $primary-red;
+        text-decoration: none;
+      }
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      &-button {
+        margin-top: 2rem;
+        border-radius: 0.5rem;
+        padding: 1.5rem 0rem;
+        font-size: 1.5rem;
+        background-color: $primary-red;
+        border: none;
+        color: $primary-white;
+        cursor: pointer;
+      }
+
+      .form-cont__input {
+        @include form;
+        padding: 0rem 0rem 1.5rem 1rem;
+        border-bottom: 0.1rem solid $primary-grey-blue;
+      }
+    }
+  }
+}
+
+.user-cont {
+  @include marginCenter;
+  margin-top: 5rem;
+}
