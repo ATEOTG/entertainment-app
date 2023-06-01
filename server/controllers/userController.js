@@ -16,12 +16,18 @@ exports.getAllUsers = async (req, res, next) => {
 exports.signup = async (req, res, next) => {
   try {
     await User.create(req.body);
-
     res.status(200).json({
       status: "success",
     });
   } catch (err) {
-    console.log(err);
+    const error = err.message;
+    if (error.includes("password:")) {
+      return next(new Error("Password must be at least 8 characters long."));
+    } else if (error.includes("passwordConfirm:")) {
+      return next(new Error("Passwords do not match."));
+    } else {
+      return next(new Error("Email already in use."));
+    }
   }
 };
 
@@ -29,7 +35,7 @@ exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      next(new Error("Please provide email and password"));
+      return next(new Error("Please provide email and password"));
     }
 
     const user = await User.findOne({ email }).select("+password");
@@ -41,7 +47,5 @@ exports.login = async (req, res, next) => {
     res.status(200).json({
       status: "successfully logged in",
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

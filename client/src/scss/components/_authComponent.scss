@@ -1,3 +1,23 @@
+.auth-confirmation {
+  position: fixed;
+  top: 0;
+  left: 17%;
+  background-color: $primary-green;
+  font-size: 2.4rem;
+  font-weight: weight(bold);
+  padding: 0.5rem;
+  color: $primary-white;
+
+  &--error {
+    @extend .auth-confirmation;
+    width: 92%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: $primary-red;
+  }
+}
+
 .auth-cont {
   display: flex;
   flex-direction: column;
@@ -46,10 +66,25 @@
         cursor: pointer;
       }
 
+      .input-cont {
+        position: relative;
+      }
+
       .form-cont__input {
         @include form;
+        width: 100%;
+        position: relative;
         padding: 0rem 0rem 1.5rem 1rem;
         border-bottom: 0.1rem solid $primary-grey-blue;
+
+        &--error {
+          color: $primary-red;
+          background-color: $primary-semi-dark-blue;
+          font-size: 1.3rem;
+          position: absolute;
+          top: 5%;
+          right: 5%;
+        }
       }
     }
   }
