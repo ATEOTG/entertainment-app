@@ -13,6 +13,19 @@ exports.getAllUsers = async (req, res, next) => {
   }
 };
 
+exports.getUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    res.status(200).json({
+      status: "success",
+      data: user,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.signup = async (req, res, next) => {
   try {
     await User.create(req.body);

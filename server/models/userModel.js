@@ -26,6 +26,15 @@ const userSchema = mongoose.Schema({
       message: "Password is not the same",
     },
   },
+  bookmarked: [{ type: mongoose.Schema.ObjectId, ref: "Media" }],
+});
+
+userSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "bookmarked",
+  });
+
+  next();
 });
 
 userSchema.pre("save", async function (next) {
@@ -44,6 +53,9 @@ userSchema.methods.correctPassword = async function (
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
+userSchema.methods.containsDuplicateBookmark = function (id) {
+  return this.bookmarked.includes(id);
+};
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

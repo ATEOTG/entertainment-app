@@ -9,5 +9,9 @@ router.route("/trending").get(mediaEntryController.getTrendingEntries);
 router.route("/movies").get(mediaEntryController.getAllMovieMediaEntries);
 router.route("/tv").get(mediaEntryController.getAllTvMediaEntries);
 router.route("/bookmarked").get(mediaEntryController.getBookmarkedEntries);
+router.route("/bookmarked/:id").patch(mediaEntryController.updateUserBookmark);
+router
+  .route("/bookmarked/remove/:id")
+  .patch(mediaEntryController.removeUserBookmark);
 
 module.exports = router;
