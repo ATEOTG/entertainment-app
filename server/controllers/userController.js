@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const authController = require("./authController");
 
 exports.getAllUsers = async (req, res, next) => {
   try {
@@ -28,10 +29,9 @@ exports.getUser = async (req, res, next) => {
 
 exports.signup = async (req, res, next) => {
   try {
-    await User.create(req.body);
-    res.status(200).json({
-      status: "success",
-    });
+    const user = await User.create(req.body);
+
+    authController.createSendToken(user, 201, req, res);
   } catch (err) {
     const error = err.message;
     if (error.includes("password:")) {
@@ -39,7 +39,7 @@ exports.signup = async (req, res, next) => {
     } else if (error.includes("passwordConfirm:")) {
       return next(new Error("Passwords do not match."));
     } else {
-      return next(new Error("Email already in use."));
+      return next(new Error(err));
     }
   }
 };
@@ -57,8 +57,17 @@ exports.login = async (req, res, next) => {
       return next(new Error("Incorrect email or password"));
     }
 
-    res.status(200).json({
-      status: "successfully logged in",
-    });
+    authController.createSendToken(user, 200, req, res);
   } catch (err) {}
+};
+
+exports.logout = (req, res) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    status: "success",
+  });
 };

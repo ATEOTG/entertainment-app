@@ -4,7 +4,6 @@ const User = require("../models/userModel");
 exports.getAllMediaEntries = async (req, res, next) => {
   try {
     const data = await Media.find({});
-
     res.status(200).json({
       status: "success",
       data,
