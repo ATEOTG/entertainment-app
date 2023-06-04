@@ -26,7 +26,7 @@ async function initGetMediaData(
   const searchString = searchValue.toLowerCase();
   const response = await fetch(url);
   const data = await response.json();
-  const user = data.user ? data.user : "null";
+  const user = data.user ? data.user : { _id: "", email: "", bookmarked: [] };
   const length = data.data.length;
   if (user) userInitBookmark(data.data, user);
   if (searchString.trim() === "") {
@@ -80,6 +80,20 @@ function Home() {
       ? "TV Series"
       : "";
 
+  const userIds = [
+    allMediaData.user._id,
+    movieData.user._id,
+    tvData.user._id,
+    bookmarkData.user._id,
+  ];
+
+  const isLoggedIn = (() => {
+    for (let i = 0; i < userIds.length; i++) {
+      if (userIds[i] != "") return true;
+    }
+    return false;
+  })();
+
   function onSubmitInputHandler(event: React.FormEvent) {
     event.preventDefault();
     const enteredText = textInputRef.current!.value;
@@ -109,7 +123,7 @@ function Home() {
   }, [path]);
   return (
     <div className="home-cont">
-      <Navigation />
+      <Navigation isLoggedIn={isLoggedIn} />
       <SearchForm
         pathText={path}
         textRef={textInputRef}

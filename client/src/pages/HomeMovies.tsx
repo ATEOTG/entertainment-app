@@ -27,6 +27,7 @@ function HomeMovies(props: HomeProps) {
                 thumbnail={el.thumbnail.regular.small}
                 isBookmarked={el.isBookmarked}
                 id={el.id}
+                userId={props.mediaData.user._id}
               />
             </div>
           );

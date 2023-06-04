@@ -5,7 +5,6 @@ import { HomeProps } from "../interface";
 
 function HomeAll(props: HomeProps) {
   const userSearched = props.textInput.current?.value ? false : true;
-
   return (
     <div>
       {userSearched ? (
@@ -34,6 +33,7 @@ function HomeAll(props: HomeProps) {
                 thumbnail={el.thumbnail.regular.small}
                 isBookmarked={el.isBookmarked}
                 id={el.id}
+                userId={props.mediaData.user._id}
               />
             </div>
           );
