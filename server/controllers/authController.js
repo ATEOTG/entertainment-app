@@ -75,7 +75,6 @@ exports.isLoggedIn = async (req, res, next) => {
         return next();
       }
 
-      //   THERE IS A LOGGED IN USER
       res.locals.user = currentUser;
       return next();
     } catch (err) {
@@ -83,4 +82,15 @@ exports.isLoggedIn = async (req, res, next) => {
     }
   }
   next();
+};
+
+exports.logout = (req, res) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    status: "success",
+  });
 };
