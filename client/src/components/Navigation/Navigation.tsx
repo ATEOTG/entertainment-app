@@ -1,11 +1,43 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../svg/Logo";
 import NavHomeIcon from "../svg/NavHomeIcon";
 import NavMoviesIcon from "../svg/NavMoviesIcon";
 import NavTvIcon from "../svg/NavTvIcon";
 import NavBookmarkIcon from "../svg/NavBookmarkIcon";
+import { Fragment, useEffect, useState } from "react";
 
-function Navigation() {
+interface NavigationProps {
+  isLoggedIn: boolean;
+}
+
+function Navigation(props: NavigationProps) {
+  const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  async function logoutHandler() {
+    try {
+      await fetch("/api/v1/users-media/logout");
+      navigate("/", { replace: true });
+      setIsLoggedIn(false);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function loginHandler() {
+    navigate("/user", { replace: true });
+  }
+
+  function menuClickHandler() {
+    setMenuOpen((prevState) => !prevState);
+  }
+
+  useEffect(() => {
+    setIsLoggedIn(props.isLoggedIn);
+  }, [props.isLoggedIn]);
+  console.log(isLoggedIn);
+
   return (
     <nav className="navigation">
       <Logo />
@@ -51,7 +83,23 @@ function Navigation() {
           </NavLink>
         </li>
       </ul>
-      <div className="avatar-circle"></div>
+      <div className="avatar-circle" onClick={menuClickHandler}>
+        {menuOpen ? (
+          <div className="menu-cont">
+            {isLoggedIn ? (
+              <button className="access-button" onClick={logoutHandler}>
+                Logout
+              </button>
+            ) : (
+              <button className="access-button" onClick={loginHandler}>
+                Login
+              </button>
+            )}
+          </div>
+        ) : (
+          <Fragment></Fragment>
+        )}
+      </div>
     </nav>
   );
 }
