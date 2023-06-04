@@ -12,10 +12,27 @@
     list-style: none;
   }
   .avatar-circle {
+    position: relative;
     width: 2.4rem;
     height: 2.4rem;
     background-color: $primary-white;
     border-radius: 50%;
+
+    .menu-cont {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translate(-40%, 120%);
+      .access-button {
+        border-radius: 0.5rem;
+        padding: 1rem;
+        font-size: 1.2rem;
+        background-color: $primary-red;
+        border: none;
+        color: $primary-white;
+        cursor: pointer;
+      }
+    }
   }
 }
 

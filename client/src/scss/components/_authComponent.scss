@@ -1,5 +1,6 @@
 .auth-confirmation {
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 17%;
   background-color: $primary-green;
@@ -15,6 +16,10 @@
     right: 0;
     margin: 0 auto;
     background-color: $primary-red;
+
+    p {
+      text-align: center;
+    }
   }
 }
 
