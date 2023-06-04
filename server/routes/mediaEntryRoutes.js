@@ -18,9 +18,8 @@ router
 router
   .route("/bookmarked")
   .get(authController.isLoggedIn, mediaEntryController.getBookmarkedEntries);
-router.route("/bookmarked/:id").patch(mediaEntryController.updateUserBookmark);
 router
-  .route("/bookmarked/remove/:id")
-  .patch(mediaEntryController.removeUserBookmark);
+  .route("/bookmarked/:id")
+  .patch(authController.isLoggedIn, mediaEntryController.updateUserBookmark);
 
 module.exports = router;
