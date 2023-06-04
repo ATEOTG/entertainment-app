@@ -3,7 +3,7 @@ import EntryComponent from "../components/EntryComponent";
 import { HomeProps } from "../interface";
 
 function HomeTV(props: HomeProps) {
-  const userSearched = props.textInput.current!.value ? false : true;
+  const userSearched = props.textInput.current?.value ? false : true;
 
   return (
     <Fragment>
@@ -12,7 +12,7 @@ function HomeTV(props: HomeProps) {
       ) : (
         <h2 className="all-title">
           Found {props.mediaData.entry.length} results for '
-          {props.textInput.current!.value}'
+          {props.textInput.current?.value}'
         </h2>
       )}
       <div className="entry-display">

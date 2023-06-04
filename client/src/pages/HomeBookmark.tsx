@@ -3,7 +3,7 @@ import { HomeProps } from "../interface";
 import EntryComponent from "../components/EntryComponent";
 
 function HomeBookmark(props: HomeProps) {
-  const userSearched = props.textInput.current!.value ? false : true;
+  const userSearched = props.textInput.current?.value ? false : true;
 
   const movieEntries = props.mediaData.entry.filter(
     (el) => el.category === "Movie"
@@ -19,7 +19,7 @@ function HomeBookmark(props: HomeProps) {
       ) : (
         <h2 className="all-title">
           Found {props.mediaData.entry.length} results for '
-          {props.textInput.current!.value}'
+          {props.textInput.current?.value}'
         </h2>
       )}
       {userSearched ? (

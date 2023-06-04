@@ -46,7 +46,7 @@ async function initGetMediaData(
 }
 
 function Home() {
-  const textInputRef = useRef<HTMLInputElement>(null);
+  const textInputRef = useRef<HTMLInputElement | null>(null);
   const [allMediaData, setMediaData] = useState<{
     entry: EntryObject[];
     length: number;
