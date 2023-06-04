@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import Logo from "./svg/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 interface AuthComponentProps {
@@ -28,6 +28,8 @@ function AuthComponent(props: AuthComponentProps) {
   const [loginConfirmation, setLoginConfirmation] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
   async function signupHandler(
     emailValue: string,
     passwordValue: string,
@@ -54,7 +56,8 @@ function AuthComponent(props: AuthComponentProps) {
       setSignupConfirmation(true);
       setTimeout(() => {
         setSignupConfirmation(false);
-      }, 3000);
+        navigate("/user", { replace: true });
+      }, 2000);
     } catch (err) {
       const errorMessage = err + "";
       setSignupErrorMessage(errorMessage.split("Error:")[1]);
@@ -85,7 +88,8 @@ function AuthComponent(props: AuthComponentProps) {
       setLoginConfirmation(true);
       setTimeout(() => {
         setLoginConfirmation(false);
-      }, 3000);
+        navigate("/", { replace: true });
+      }, 2000);
     } catch (err) {
       setLoginError(true);
       setTimeout(() => {

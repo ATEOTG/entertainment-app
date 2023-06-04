@@ -10,6 +10,7 @@ interface EntryComponentProps {
   thumbnail: string;
   isBookmarked: boolean;
   id: string;
+  userId: string;
 }
 
 function EntryComponent(props: EntryComponentProps) {
@@ -23,7 +24,11 @@ function EntryComponent(props: EntryComponentProps) {
             src={require(`../assets/thumbnails/${imgPath}`)}
             alt={`Thumbnail for ${props.title} ${props.category}`}
           />
-          <BookmarkComponent isBookmarked={props.isBookmarked} id={props.id} />
+          <BookmarkComponent
+            isBookmarked={props.isBookmarked}
+            id={props.id}
+            userId={props.userId}
+          />
         </div>
       </div>
       <div className="entry-text-cont">
