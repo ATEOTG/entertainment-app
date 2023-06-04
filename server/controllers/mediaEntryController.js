@@ -92,45 +92,42 @@ exports.getBookmarkedEntries = async (req, res) => {
   }
 };
 
+async function addUserBookmark(mediaEntry, currentUser, res) {
+  const updatedUser = await User.findByIdAndUpdate(
+    currentUser.id,
+    { bookmarked: [...currentUser.bookmarked, mediaEntry.id] },
+    { new: true }
+  );
+  res.status(200).json({
+    status: "success",
+    data: updatedUser,
+  });
+}
+
+async function removeUserBookmark(mediaEntry, currentUser, res) {
+  const bookmarkFilter = currentUser.bookmarked.filter(
+    (el) => el != mediaEntry.id
+  );
+  const updatedUser = await User.findByIdAndUpdate(
+    currentUser.id,
+    { bookmarked: bookmarkFilter },
+    { new: true }
+  );
+  res.status(200).json({
+    status: "success",
+    data: updatedUser,
+  });
+}
+
 exports.updateUserBookmark = async (req, res, next) => {
   try {
-    const entry = await Media.findById(req.body.id);
-    const user = await User.findById(req.params.id);
+    const entry = await Media.findById(req.params.id);
+    const user = await User.findById(req.body.id);
     if (user.containsDuplicateBookmark(entry.id)) {
-      return next(new Error("That entry has already been bookmarked!"));
+      removeUserBookmark(entry, user, res);
+    } else {
+      addUserBookmark(entry, user, res);
     }
-    const updatedUser = await User.findByIdAndUpdate(
-      user.id,
-      { bookmarked: [...user.bookmarked, entry.id] },
-      { new: true }
-    );
-    res.status(200).json({
-      status: "success",
-      data: updatedUser,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-exports.removeUserBookmark = async (req, res, next) => {
-  try {
-    const entry = await Media.findById(req.body.id);
-    const user = await User.findById(req.params.id);
-    const bookmarkFilter = user.bookmarked.filter((el) => el != entry.id);
-    if (bookmarkFilter.length === user.bookmarked.length) {
-      return next(new Error("Id is not in bookmarked!"));
-    }
-
-    const updatedUser = await User.findByIdAndUpdate(
-      user.id,
-      { bookmarked: bookmarkFilter },
-      { new: true }
-    );
-    res.status(200).json({
-      status: "success",
-      data: updatedUser,
-    });
   } catch (err) {
     console.log(err);
   }
