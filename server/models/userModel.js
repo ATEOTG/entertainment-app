@@ -29,14 +29,6 @@ const userSchema = mongoose.Schema({
   bookmarked: [{ type: mongoose.Schema.ObjectId, ref: "Media" }],
 });
 
-userSchema.pre(/^find/, function (next) {
-  this.populate({
-    path: "bookmarked",
-  });
-
-  next();
-});
-
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 

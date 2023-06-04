@@ -7,6 +7,7 @@ exports.getAllMediaEntries = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       data,
+      user: res.locals.user,
     });
   } catch (err) {
     console.log(err);
@@ -39,6 +40,7 @@ exports.getAllMovieMediaEntries = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       data,
+      user: res.locals.user,
     });
   } catch (err) {
     console.log(err);
@@ -54,6 +56,7 @@ exports.getAllTvMediaEntries = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       data,
+      user: res.locals.user,
     });
   } catch (err) {
     console.log(err);
@@ -77,11 +80,12 @@ exports.getTrendingEntries = async (req, res, next) => {
 
 exports.getBookmarkedEntries = async (req, res) => {
   try {
-    const data = await Media.find({ isBookmarked: true });
+    const data = await Media.find({});
 
     res.status(200).json({
       status: "success",
       data,
+      user: res.locals.user,
     });
   } catch (err) {
     console.log(err);
