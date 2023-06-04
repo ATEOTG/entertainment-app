@@ -2,7 +2,11 @@ import TrendingComponent from "./TrendingComponent";
 import { EntryObject } from "../../interface";
 
 export interface TrendingProps {
-  mediaData: { entry: EntryObject[]; length: number };
+  mediaData: {
+    entry: EntryObject[];
+    length: number;
+    user: { _id: string; bookmarked: [string]; email: string } | null;
+  };
 }
 
 function Trending(props: TrendingProps) {
@@ -22,6 +26,7 @@ function Trending(props: TrendingProps) {
             thumbnail={el.thumbnail.trending.small}
             key={el.id + "trending"}
             id={el.id}
+            userId={props.mediaData.user!._id}
           />
         );
       })}
