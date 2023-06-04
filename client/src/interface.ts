@@ -21,5 +21,9 @@ export interface EntryObject {
 
 export interface HomeProps {
   textInput: React.RefObject<HTMLInputElement>;
-  mediaData: { entry: EntryObject[]; length: number };
+  mediaData: {
+    entry: EntryObject[];
+    length: number;
+    user: { _id: string; bookmarked: [string]; email: string };
+  };
 }

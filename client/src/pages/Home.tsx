@@ -8,6 +8,16 @@ import HomeBookmark from "./HomeBookmark";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { EntryObject } from "../interface";
 
+function userInitBookmark(data: any, user: { bookmarked: [] }) {
+  for (let i = 0; i < data.length; i++) {
+    for (let k = 0; k < user.bookmarked.length; k++) {
+      if (data[i].id === user.bookmarked[k]) {
+        data[i].isBookmarked = true;
+      }
+    }
+  }
+}
+
 async function initGetMediaData(
   url: string,
   searchValue: string,
@@ -16,13 +26,22 @@ async function initGetMediaData(
   const searchString = searchValue.toLowerCase();
   const response = await fetch(url);
   const data = await response.json();
+  const user = data.user ? data.user : "null";
   const length = data.data.length;
-  if (searchString.trim() === "") setState({ entry: data.data, length });
-  else {
+  if (user) userInitBookmark(data.data, user);
+  if (searchString.trim() === "") {
+    if (url === "/api/v1/home/bookmarked") {
+      data.data = data.data.filter((el: EntryObject) => el.isBookmarked);
+    }
+    setState({ entry: data.data, length, user });
+  } else {
+    if (url === "/api/v1/home/bookmarked") {
+      data.data = data.data.filter((el: EntryObject) => el.isBookmarked);
+    }
     data.data = data.data.filter((el: EntryObject) =>
       el.title.toLowerCase().includes(searchString.toLowerCase())
     );
-    setState({ entry: data.data, length });
+    setState({ entry: data.data, length, user });
   }
 }
 
@@ -31,19 +50,23 @@ function Home() {
   const [allMediaData, setMediaData] = useState<{
     entry: EntryObject[];
     length: number;
-  }>({ entry: [], length: 0 });
+    user: { _id: string; bookmarked: [string]; email: string };
+  }>({ entry: [], length: 0, user: { _id: "", bookmarked: [""], email: "" } });
   const [movieData, setMovieData] = useState<{
     entry: EntryObject[];
     length: number;
-  }>({ entry: [], length: 0 });
+    user: { _id: string; bookmarked: [string]; email: string };
+  }>({ entry: [], length: 0, user: { _id: "", bookmarked: [""], email: "" } });
   const [tvData, setTvData] = useState<{
     entry: EntryObject[];
     length: number;
-  }>({ entry: [], length: 0 });
+    user: { _id: string; bookmarked: [string]; email: string };
+  }>({ entry: [], length: 0, user: { _id: "", bookmarked: [""], email: "" } });
   const [bookmarkData, setBookmarkData] = useState<{
     entry: EntryObject[];
     length: number;
-  }>({ entry: [], length: 0 });
+    user: { _id: string; bookmarked: [string]; email: string };
+  }>({ entry: [], length: 0, user: { _id: "", bookmarked: [""], email: "" } });
 
   const location = useLocation();
   const path = location.pathname;

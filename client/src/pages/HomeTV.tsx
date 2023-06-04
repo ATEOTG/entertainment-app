@@ -3,11 +3,11 @@ import EntryComponent from "../components/EntryComponent";
 import { HomeProps } from "../interface";
 
 function HomeTV(props: HomeProps) {
-  const isAll = props.mediaData.length === props.mediaData.entry.length;
+  const userSearched = props.textInput.current!.value ? false : true;
 
   return (
     <Fragment>
-      {isAll ? (
+      {userSearched ? (
         <Fragment></Fragment>
       ) : (
         <h2 className="all-title">

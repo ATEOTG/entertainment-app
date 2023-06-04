@@ -4,12 +4,16 @@ import Trending from "../components/Trending/Trending";
 import { HomeProps } from "../interface";
 
 function HomeAll(props: HomeProps) {
-  const isAll = props.mediaData.length === props.mediaData.entry.length;
+  const userSearched = props.textInput.current!.value ? false : true;
 
   return (
     <div>
-      {isAll ? <Trending mediaData={props.mediaData} /> : <Fragment></Fragment>}
-      {isAll ? (
+      {userSearched ? (
+        <Trending mediaData={props.mediaData} />
+      ) : (
+        <Fragment></Fragment>
+      )}
+      {userSearched ? (
         <h2 className="all-title">Recommended for you</h2>
       ) : (
         <h2 className="all-title">
