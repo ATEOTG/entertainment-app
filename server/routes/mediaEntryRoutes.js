@@ -10,7 +10,7 @@ router
 router.route("/:id").patch(mediaEntryController.updateMediaBookmark);
 router.route("/trending").get(mediaEntryController.getTrendingEntries);
 router
-  .route("/movies")
+  .route("/movie")
   .get(authController.isLoggedIn, mediaEntryController.getAllMovieMediaEntries);
 router
   .route("/tv")

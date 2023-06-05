@@ -17,7 +17,7 @@ function Navigation(props: NavigationProps) {
 
   async function logoutHandler() {
     try {
-      await fetch("/api/v1/users-media/logout");
+      await fetch("/api/v1/users/logout");
       navigate("/", { replace: true });
       setIsLoggedIn(false);
     } catch (err) {
@@ -36,7 +36,6 @@ function Navigation(props: NavigationProps) {
   useEffect(() => {
     setIsLoggedIn(props.isLoggedIn);
   }, [props.isLoggedIn]);
-  console.log(isLoggedIn);
 
   return (
     <nav className="navigation">

@@ -36,7 +36,7 @@ function AuthComponent(props: AuthComponentProps) {
     passwordConfirmValue: string
   ) {
     try {
-      const response = await fetch("/api/v1/users-media/signup", {
+      const response = await fetch("/api/v1/users/signup", {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
@@ -56,7 +56,7 @@ function AuthComponent(props: AuthComponentProps) {
       setSignupConfirmation(true);
       setTimeout(() => {
         setSignupConfirmation(false);
-        navigate("/user", { replace: true });
+        navigate("/", { replace: true });
       }, 2000);
     } catch (err) {
       const errorMessage = err + "";
@@ -70,7 +70,7 @@ function AuthComponent(props: AuthComponentProps) {
 
   async function loginHandler(emailValue: string, passwordValue: string) {
     try {
-      const response = await fetch("/api/v1/users-media/login", {
+      const response = await fetch("/api/v1/users/login", {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",

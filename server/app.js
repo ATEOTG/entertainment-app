@@ -13,8 +13,8 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/v1/home", mediaEntryRouter);
-app.use("/api/v1/users-media", userRouter);
+app.use("/api/v1/entries", mediaEntryRouter);
+app.use("/api/v1/users", userRouter);
 
 app.use((err, req, res, next) => {
   err.statusCode = err.statusCode || 500;

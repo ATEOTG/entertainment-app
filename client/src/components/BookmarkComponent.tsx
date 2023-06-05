@@ -12,7 +12,7 @@ async function updateIsBookmark(
   userId: string
 ) {
   try {
-    await fetch(`/api/v1/home/bookmarked/${id}`, {
+    await fetch(`/api/v1/entries/bookmarked/${id}`, {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
