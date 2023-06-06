@@ -7,6 +7,10 @@
     font-size: 2rem;
     font-weight: weight(regular);
     color: $primary-white;
+
+    @include tablet() {
+      font-size: 3.2rem;
+    }
   }
 }
 

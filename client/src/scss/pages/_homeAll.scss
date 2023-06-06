@@ -10,4 +10,9 @@
   grid-template-rows: repeat(2, auto);
   grid-template-columns: repeat(2, 1fr);
   row-gap: 2rem;
+  column-gap: 1.5rem;
+
+  @include tablet() {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
