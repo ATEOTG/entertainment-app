@@ -31,12 +31,20 @@ Users should be able to:
 
 ### Screenshot
 
-### Mobile Version
+### Mobile
 ![Screen Shot 2023-06-04 at 19 33 16](https://github.com/ATEOTG/entertainment-app/assets/25332391/44fc7ae6-85ee-41ad-8703-1a92ec3142dc)
 
 ![Screen Shot 2023-06-04 at 19 33 46](https://github.com/ATEOTG/entertainment-app/assets/25332391/d65ba324-ad3a-4ac0-acbb-091c5a3bd90d)
 
 ![Screen Shot 2023-06-04 at 19 33 48](https://github.com/ATEOTG/entertainment-app/assets/25332391/1f36783b-4355-4969-8f1d-719bed855bf0)
+
+### Tablet
+![Screen Shot 2023-06-06 at 19 00 24](https://github.com/ATEOTG/entertainment-app/assets/25332391/a7a0a130-a8ee-4dd6-a2d5-d7f3cfc9711b)
+
+![Screen Shot 2023-06-06 at 19 00 11](https://github.com/ATEOTG/entertainment-app/assets/25332391/50be822d-79a8-4716-a803-93c91c613c1b)
+
+![Screen Shot 2023-06-06 at 19 00 15](https://github.com/ATEOTG/entertainment-app/assets/25332391/ef2d8c9e-1638-4798-a400-16fafad4882a)
+
 
 ## My process
 
