@@ -1,5 +1,6 @@
 import TrendingComponent from "./TrendingComponent";
 import { EntryObject } from "../../interface";
+import useWindowWidth from "../../hooks/use-window";
 
 export interface TrendingProps {
   mediaData: {
@@ -10,6 +11,8 @@ export interface TrendingProps {
 }
 
 function Trending(props: TrendingProps) {
+  const { width } = useWindowWidth();
+  const thumnbnailSize = width <= 767 ? "small" : "large";
   const trendingData = props.mediaData.entry.filter((el) => el.isTrending);
 
   return (
@@ -23,7 +26,7 @@ function Trending(props: TrendingProps) {
             rating={el.rating}
             isTrending={el.isTrending}
             isBookmarked={el.isBookmarked}
-            thumbnail={el.thumbnail.trending.small}
+            thumbnail={el.thumbnail.trending[thumnbnailSize]}
             key={el.id + "trending"}
             id={el.id}
             userId={props.mediaData.user!._id}
