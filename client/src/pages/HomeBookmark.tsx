@@ -1,8 +1,12 @@
 import { Fragment } from "react";
 import { HomeProps } from "../interface";
 import EntryComponent from "../components/EntryComponent";
+import useWindowWidth from "../hooks/use-window";
 
 function HomeBookmark(props: HomeProps) {
+  const { width } = useWindowWidth();
+  const thumnbnailSize =
+    width <= 767 ? "small" : width >= 768 && width < 1439 ? "medium" : "large";
   const userSearched = props.textInput.current?.value ? false : true;
 
   const movieEntries = props.mediaData.entry.filter(
@@ -36,7 +40,7 @@ function HomeBookmark(props: HomeProps) {
                 year={el.year}
                 category={el.category}
                 rating={el.rating}
-                thumbnail={el.thumbnail.regular.small}
+                thumbnail={el.thumbnail.regular[thumnbnailSize]}
                 isBookmarked={el.isBookmarked}
                 id={el.id}
                 userId={props.mediaData.user._id}
@@ -59,7 +63,7 @@ function HomeBookmark(props: HomeProps) {
                 year={el.year}
                 category={el.category}
                 rating={el.rating}
-                thumbnail={el.thumbnail.regular.small}
+                thumbnail={el.thumbnail.regular[thumnbnailSize]}
                 isBookmarked={el.isBookmarked}
                 id={el.id}
                 userId={props.mediaData.user._id}
