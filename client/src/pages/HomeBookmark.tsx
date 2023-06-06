@@ -22,11 +22,11 @@ function HomeBookmark(props: HomeProps) {
           {props.textInput.current?.value}'
         </h2>
       )}
-      {userSearched ? (
-        <h2 className="title">Bookmarked Movies</h2>
-      ) : (
-        <Fragment> </Fragment>
-      )}
+
+      <h2 className="title" id="title-bookmark-movies">
+        Bookmarked Movies
+      </h2>
+
       <div className="entry-display">
         {movieEntries.map((el) => {
           return (
@@ -45,11 +45,10 @@ function HomeBookmark(props: HomeProps) {
           );
         })}
       </div>
-      {userSearched ? (
-        <h2 className="title">Bookmarked TV Series</h2>
-      ) : (
-        <Fragment> </Fragment>
-      )}
+
+      <h2 className="title" id="title-bookmark-tv">
+        Bookmarked TV Series
+      </h2>
 
       <div className="entry-display">
         {tvEntries.map((el) => {
