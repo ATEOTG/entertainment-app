@@ -24,4 +24,9 @@
       }
     }
   }
+
+  @include tablet() {
+    top: 10%;
+    right: 6%;
+  }
 }

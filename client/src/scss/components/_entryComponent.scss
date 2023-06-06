@@ -4,11 +4,24 @@
 
   .entry-inner-div {
     position: absolute;
+
+    @include tablet() {
+      width: 22rem;
+    }
   }
   .entry-img {
     @include borderRadius;
     width: 16.4rem;
     height: 11rem;
+
+    @include tablet() {
+      width: 100%;
+      height: 14rem;
+    }
+  }
+
+  @include tablet() {
+    height: 14.2rem;
   }
 }
 

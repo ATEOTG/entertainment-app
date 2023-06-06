@@ -8,6 +8,7 @@
   font-weight: weight(bold);
   padding: 0.5rem;
   color: $primary-white;
+  text-align: center;
 
   &--error {
     @extend .auth-confirmation;
@@ -16,10 +17,15 @@
     right: 0;
     margin: 0 auto;
     background-color: $primary-red;
+    text-align: center;
 
-    p {
-      text-align: center;
+    @include tablet() {
+      width: 60%;
     }
+  }
+
+  @include tablet() {
+    width: 60%;
   }
 }
 
@@ -102,10 +108,23 @@
         }
       }
     }
+
+    @include tablet() {
+      padding: 2rem 3rem;
+    }
+  }
+
+  @include tablet() {
+    gap: 7rem;
   }
 }
 
 .user-cont {
   @include marginCenter;
   margin-top: 5rem;
+
+  @include tablet() {
+    margin-top: 8rem;
+    width: 50%;
+  }
 }
