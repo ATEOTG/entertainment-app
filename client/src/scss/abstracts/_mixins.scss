@@ -3,6 +3,12 @@
   @return map-get($font-weights, $weight-name);
 }
 
+@mixin tablet {
+  @media (min-width: 48em) {
+    @content;
+  }
+}
+
 @mixin flexHorizontal {
   display: flex;
   justify-content: space-between;
@@ -11,6 +17,10 @@
 @mixin marginCenter {
   width: 92%;
   margin: 0 auto;
+
+  @include tablet() {
+    width: 95%;
+  }
 }
 
 @mixin form {
