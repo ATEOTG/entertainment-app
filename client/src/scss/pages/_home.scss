@@ -1,4 +1,4 @@
-@import "../abstracts/mixins", "../pages/homeAll";
+@import "../abstracts/mixins", "../pages/homeAll", "./homeBookmark";
 
 .home-result-cont {
   @include marginCenter;
