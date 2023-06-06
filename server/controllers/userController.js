@@ -39,7 +39,7 @@ exports.signup = async (req, res, next) => {
     } else if (error.includes("passwordConfirm:")) {
       return next(new Error("Passwords do not match."));
     } else {
-      return next(new Error(err));
+      return next(new Error("User with that email already exists"));
     }
   }
 };
