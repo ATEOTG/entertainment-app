@@ -9,9 +9,7 @@ exports.getAllUsers = async (req, res, next) => {
       status: "success",
       data,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.getUser = async (req, res, next) => {
@@ -22,9 +20,7 @@ exports.getUser = async (req, res, next) => {
       status: "success",
       data: user,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.signup = async (req, res, next) => {

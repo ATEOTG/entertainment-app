@@ -19,9 +19,7 @@ function Navigation(props: NavigationProps) {
       await fetch("/api/v1/users/logout");
       navigate("/", { replace: true });
       setIsLoggedIn(false);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
 
   function loginHandler() {

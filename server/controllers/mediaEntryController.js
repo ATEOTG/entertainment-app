@@ -9,9 +9,7 @@ exports.getAllMediaEntries = async (req, res, next) => {
       data,
       user: res.locals.user,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.updateMediaBookmark = async (req, res) => {
@@ -26,9 +24,7 @@ exports.updateMediaBookmark = async (req, res) => {
         media,
       },
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.getAllMovieMediaEntries = async (req, res, next) => {
@@ -42,9 +38,7 @@ exports.getAllMovieMediaEntries = async (req, res, next) => {
       data,
       user: res.locals.user,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.getAllTvMediaEntries = async (req, res, next) => {
@@ -58,9 +52,7 @@ exports.getAllTvMediaEntries = async (req, res, next) => {
       data,
       user: res.locals.user,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.getTrendingEntries = async (req, res, next) => {
@@ -73,9 +65,7 @@ exports.getTrendingEntries = async (req, res, next) => {
       status: "success",
       data,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 exports.getBookmarkedEntries = async (req, res) => {
@@ -87,9 +77,7 @@ exports.getBookmarkedEntries = async (req, res) => {
       data,
       user: res.locals.user,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 async function addUserBookmark(mediaEntry, currentUser, res) {
@@ -128,7 +116,5 @@ exports.updateUserBookmark = async (req, res, next) => {
     } else {
       addUserBookmark(entry, user, res);
     }
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

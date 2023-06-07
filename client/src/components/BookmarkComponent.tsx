@@ -23,9 +23,7 @@ async function updateIsBookmark(
         isBookmarked: isCurrentlyBookmarked,
       }),
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }
 function BookmarkComponent(props: BookMarkComponentProps) {
   const [bookMarkedState, setBookMarkedState] = useState<boolean>(
