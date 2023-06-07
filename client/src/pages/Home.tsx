@@ -90,6 +90,7 @@ function Home() {
 
   const isLoggedIn = (() => {
     for (let i = 0; i < userIds.length; i++) {
+      // eslint-disable-next-line
       if (userIds[i] != "") return true;
     }
     return false;
