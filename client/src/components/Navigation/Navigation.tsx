@@ -12,7 +12,7 @@ interface NavigationProps {
 
 function Navigation(props: NavigationProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   async function logoutHandler() {
@@ -29,9 +29,9 @@ function Navigation(props: NavigationProps) {
     navigate("/user", { replace: true });
   }
 
-  function menuClickHandler() {
-    setMenuOpen((prevState) => !prevState);
-  }
+  // function menuClickHandler() {
+  //   setMenuOpen((prevState) => !prevState);
+  // }
 
   useEffect(() => {
     setIsLoggedIn(props.isLoggedIn);
@@ -39,65 +39,64 @@ function Navigation(props: NavigationProps) {
 
   return (
     <nav className="navigation">
-      <Logo />
-      <ul>
-        <li>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? "navActive" : "navInactive"
-            }
-            to="all"
-          >
-            <NavHomeIcon />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? "navActive" : "navInactive"
-            }
-            to="movies"
-          >
-            <NavMoviesIcon />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? "navActive" : "navInactive"
-            }
-            to="television"
-          >
-            <NavTvIcon />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? "navActive" : "navInactive"
-            }
-            to="bookmark"
-          >
-            <NavBookmarkIcon />
-          </NavLink>
-        </li>
-      </ul>
-      <div className="avatar-circle" onClick={menuClickHandler}>
-        {menuOpen ? (
-          <div className="menu-cont">
-            {isLoggedIn ? (
-              <button className="access-button" onClick={logoutHandler}>
-                Logout
-              </button>
-            ) : (
-              <button className="access-button" onClick={loginHandler}>
-                Login
-              </button>
-            )}
-          </div>
-        ) : (
-          <Fragment></Fragment>
-        )}
+      <div className="navigation__desktop">
+        <Logo />
+        <ul>
+          <li>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? "navActive" : "navInactive"
+              }
+              to="all"
+            >
+              <NavHomeIcon />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? "navActive" : "navInactive"
+              }
+              to="movies"
+            >
+              <NavMoviesIcon />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? "navActive" : "navInactive"
+              }
+              to="television"
+            >
+              <NavTvIcon />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? "navActive" : "navInactive"
+              }
+              to="bookmark"
+            >
+              <NavBookmarkIcon />
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+
+      <div className="avatar-circle">
+        <div className="menu-cont">
+          {isLoggedIn ? (
+            <button className="access-button" onClick={logoutHandler}>
+              Logout
+            </button>
+          ) : (
+            <button className="access-button" onClick={loginHandler}>
+              Login
+            </button>
+          )}
+        </div>
       </div>
     </nav>
   );
