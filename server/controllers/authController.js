@@ -75,11 +75,13 @@ exports.isLoggedIn = async (req, res, next) => {
       }
 
       res.locals.user = currentUser;
+      console.log("stepped in");
       return next();
     } catch (err) {
       return next();
     }
   }
+  console.log("passed by");
   next();
 };
 
