@@ -28,8 +28,6 @@ async function initGetMediaData(
   const response = await fetch(url, { credentials: "include" });
   const data = await response.json();
   const user = data.user ? data.user : { _id: "", email: "", bookmarked: [] };
-  console.log(data);
-  console.log(user);
   const length = data.data.length;
   if (user) userInitBookmark(data.data, user);
   if (searchString.trim() === "") {
