@@ -16,7 +16,9 @@ function Navigation(props: NavigationProps) {
 
   async function logoutHandler() {
     try {
-      await fetch("https://ent-app.onrender.com/api/v1/users/logout");
+      await fetch("https://ent-app.onrender.com/api/v1/users/logout", {
+        credentials: "include",
+      });
       navigate("/", { replace: true });
       setIsLoggedIn(false);
     } catch (err) {}
