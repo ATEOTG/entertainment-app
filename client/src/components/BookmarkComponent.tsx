@@ -20,6 +20,7 @@ async function updateIsBookmark(
           "Content-type": "application/json",
         },
         method: "PATCH",
+        credentials: "include",
         body: JSON.stringify({
           id: userId,
           isBookmarked: isCurrentlyBookmarked,

@@ -25,7 +25,7 @@ async function initGetMediaData(
   setState: Function
 ) {
   const searchString = searchValue.toLowerCase();
-  const response = await fetch(url);
+  const response = await fetch(url, { credentials: "include" });
   const data = await response.json();
   const user = data.user ? data.user : { _id: "", email: "", bookmarked: [] };
   console.log(data);

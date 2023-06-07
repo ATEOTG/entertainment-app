@@ -44,6 +44,7 @@ function AuthComponent(props: AuthComponentProps) {
             "Content-type": "application/json",
           },
           method: "POST",
+          credentials: "include",
           body: JSON.stringify({
             email: emailValue,
             password: passwordValue,
@@ -80,6 +81,7 @@ function AuthComponent(props: AuthComponentProps) {
             Accept: "application/json",
             "Content-type": "application/json",
           },
+          credentials: "include",
           method: "POST",
           body: JSON.stringify({
             email: emailValue,
