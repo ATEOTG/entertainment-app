@@ -4,7 +4,7 @@ import NavHomeIcon from "../svg/NavHomeIcon";
 import NavMoviesIcon from "../svg/NavMoviesIcon";
 import NavTvIcon from "../svg/NavTvIcon";
 import NavBookmarkIcon from "../svg/NavBookmarkIcon";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface NavigationProps {
   isLoggedIn: boolean;
@@ -12,7 +12,6 @@ interface NavigationProps {
 
 function Navigation(props: NavigationProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
-  // const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   async function logoutHandler() {
@@ -28,10 +27,6 @@ function Navigation(props: NavigationProps) {
   function loginHandler() {
     navigate("/user", { replace: true });
   }
-
-  // function menuClickHandler() {
-  //   setMenuOpen((prevState) => !prevState);
-  // }
 
   useEffect(() => {
     setIsLoggedIn(props.isLoggedIn);
