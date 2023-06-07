@@ -83,7 +83,6 @@ function AuthComponent(props: AuthComponentProps) {
           },
           credentials: "include",
           method: "POST",
-          mode: "cors",
           body: JSON.stringify({
             email: emailValue,
             password: passwordValue,
