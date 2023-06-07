@@ -7,6 +7,7 @@ import HomeTV from "./HomeTV";
 import HomeBookmark from "./HomeBookmark";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { EntryObject } from "../interface";
+import NotFound from "../components/NotFound";
 
 function userInitBookmark(data: any, user: { bookmarked: [] }) {
   for (let i = 0; i < data.length; i++) {
@@ -128,42 +129,48 @@ function Home() {
   return (
     <div className="home-cont">
       <Navigation isLoggedIn={isLoggedIn} />
-      <SearchForm
-        pathText={path}
-        textRef={textInputRef}
-        onSubmitHandler={onSubmitInputHandler}
-      />
-      <div className="home-result-cont">
-        {textInputRef.current?.value === "" ? (
-          <h2 className="title">{titleText}</h2>
-        ) : (
-          <Fragment></Fragment>
-        )}
+      <div className="home-cont__desktop">
+        <SearchForm
+          pathText={path}
+          textRef={textInputRef}
+          onSubmitHandler={onSubmitInputHandler}
+        />
+        <div className="home-result-cont">
+          {textInputRef.current?.value === "" ? (
+            <h2 className="title">{titleText}</h2>
+          ) : (
+            <Fragment></Fragment>
+          )}
 
-        <Routes>
-          <Route
-            path="all"
-            element={
-              <HomeAll textInput={textInputRef} mediaData={allMediaData} />
-            }
-          />
-          <Route
-            path="movies"
-            element={
-              <HomeMovies textInput={textInputRef} mediaData={movieData} />
-            }
-          />
-          <Route
-            path="television"
-            element={<HomeTV textInput={textInputRef} mediaData={tvData} />}
-          />
-          <Route
-            path="bookmark"
-            element={
-              <HomeBookmark mediaData={bookmarkData} textInput={textInputRef} />
-            }
-          />
-        </Routes>
+          <Routes>
+            <Route
+              path="all"
+              element={
+                <HomeAll textInput={textInputRef} mediaData={allMediaData} />
+              }
+            />
+            <Route
+              path="movies"
+              element={
+                <HomeMovies textInput={textInputRef} mediaData={movieData} />
+              }
+            />
+            <Route
+              path="television"
+              element={<HomeTV textInput={textInputRef} mediaData={tvData} />}
+            />
+            <Route
+              path="bookmark"
+              element={
+                <HomeBookmark
+                  mediaData={bookmarkData}
+                  textInput={textInputRef}
+                />
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
