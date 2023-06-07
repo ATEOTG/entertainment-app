@@ -12,8 +12,13 @@ const userRouter = require("./routes/userRoutes");
 const app = express();
 
 app.enable("trust proxy");
-app.use(cors());
-app.options("*", cors());
+app.use(
+  cors({
+    origin: "https://main--stellar-buttercream-b90578.netlify.app",
+    credentials: true,
+  })
+);
+app.set("trust proxy", 1);
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
