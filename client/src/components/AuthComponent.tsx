@@ -36,18 +36,21 @@ function AuthComponent(props: AuthComponentProps) {
     passwordConfirmValue: string
   ) {
     try {
-      const response = await fetch("/api/v1/users/signup", {
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          email: emailValue,
-          password: passwordValue,
-          passwordConfirm: passwordConfirmValue,
-        }),
-      });
+      const response = await fetch(
+        "https://ent-app.onrender.com/api/v1/users/signup",
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({
+            email: emailValue,
+            password: passwordValue,
+            passwordConfirm: passwordConfirmValue,
+          }),
+        }
+      );
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.message);
@@ -70,17 +73,20 @@ function AuthComponent(props: AuthComponentProps) {
 
   async function loginHandler(emailValue: string, passwordValue: string) {
     try {
-      const response = await fetch("/api/v1/users/login", {
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          email: emailValue,
-          password: passwordValue,
-        }),
-      });
+      const response = await fetch(
+        "https://ent-app.onrender.com/api/v1/users/login",
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({
+            email: emailValue,
+            password: passwordValue,
+          }),
+        }
+      );
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.message);

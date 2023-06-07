@@ -12,17 +12,20 @@ async function updateIsBookmark(
   userId: string
 ) {
   try {
-    await fetch(`/api/v1/entries/bookmarked/${id}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-      method: "PATCH",
-      body: JSON.stringify({
-        id: userId,
-        isBookmarked: isCurrentlyBookmarked,
-      }),
-    });
+    await fetch(
+      `https://ent-app.onrender.com/api/v1/entries/bookmarked/${id}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+        method: "PATCH",
+        body: JSON.stringify({
+          id: userId,
+          isBookmarked: isCurrentlyBookmarked,
+        }),
+      }
+    );
   } catch (err) {}
 }
 function BookmarkComponent(props: BookMarkComponentProps) {
