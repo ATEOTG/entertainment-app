@@ -46,6 +46,13 @@ Users should be able to:
 ![Screen Shot 2023-06-06 at 19 00 15](https://github.com/ATEOTG/entertainment-app/assets/25332391/ef2d8c9e-1638-4798-a400-16fafad4882a)
 
 
+### Desktop
+![Screen Shot 2023-06-07 at 15 32 48](https://github.com/ATEOTG/entertainment-app/assets/25332391/df997ed3-bd2e-4d6f-9be8-dd03cd3bda60)
+
+![Screen Shot 2023-06-07 at 15 28 35](https://github.com/ATEOTG/entertainment-app/assets/25332391/7b3fe912-1fc7-478a-af4d-efbb1c4343e6)
+
+![Screen Shot 2023-06-07 at 15 28 38](https://github.com/ATEOTG/entertainment-app/assets/25332391/6479a6d7-0d1c-4035-bbd5-05553ab3059c)
+
 ## My process
 
 ### Built with
