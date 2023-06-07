@@ -159,6 +159,9 @@ function AuthComponent(props: AuthComponentProps) {
                 required
                 placeholder={"Email address"}
                 ref={emailRef}
+                style={{
+                  borderBottomColor: isEmailValid ? "#5a698f" : "#fc4747",
+                }}
               />
               {isEmailValid ? (
                 <Fragment></Fragment>
@@ -176,6 +179,9 @@ function AuthComponent(props: AuthComponentProps) {
                 required
                 placeholder={"Password"}
                 ref={passwordRef}
+                style={{
+                  borderBottomColor: isPasswordValid ? "#5a698f" : "#fc4747",
+                }}
               />
               {isPasswordValid ? (
                 <Fragment></Fragment>
@@ -196,6 +202,11 @@ function AuthComponent(props: AuthComponentProps) {
                   required
                   placeholder={"Repeat Password"}
                   ref={passwordConfirmRef}
+                  style={{
+                    borderBottomColor: isPasswordConfirmValid
+                      ? "#5a698f"
+                      : "#fc4747",
+                  }}
                 />
                 {isPasswordConfirmValid ? (
                   <Fragment></Fragment>
