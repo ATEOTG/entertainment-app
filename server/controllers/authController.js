@@ -14,11 +14,9 @@ exports.createSendToken = (user, statusCode, req, res) => {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
+    security: false,
   };
 
-  if (req.secure) {
-    cookieOptions.secure = true;
-  }
   res.cookie("jwt", token, cookieOptions);
   user.password = undefined;
 
@@ -62,6 +60,7 @@ exports.protect = async (req, res, next) => {
 };
 
 exports.isLoggedIn = async (req, res, next) => {
+  console.log(req.cookies);
   if (req.cookies.jwt) {
     try {
       const decoded = await promisify(jwt.verify)(
