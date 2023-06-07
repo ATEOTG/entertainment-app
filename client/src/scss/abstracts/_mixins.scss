@@ -9,6 +9,12 @@
   }
 }
 
+@mixin desktop {
+  @media (min-width: 90em) {
+    @content;
+  }
+}
+
 @mixin flexHorizontal {
   display: flex;
   justify-content: space-between;

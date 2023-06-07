@@ -1,4 +1,19 @@
-@import "../abstracts/mixins", "../pages/homeAll", "./homeBookmark";
+@import "../abstracts/mixins", "../pages/homeAll", "./homeBookmark", "./error";
+
+.home-cont {
+  @include desktop() {
+    display: grid;
+    grid-template-columns: 25fr 75fr;
+    margin-top: 2rem;
+    max-width: 124rem;
+  }
+
+  &__desktop {
+    @include desktop() {
+      min-width: 124rem;
+    }
+  }
+}
 
 .home-result-cont {
   @include marginCenter;
@@ -25,6 +40,14 @@
   .search-form {
     &__input {
       @include form;
+
+      &:focus {
+        border-bottom: 0.1rem solid $primary-grey-blue;
+      }
+    }
+
+    @include desktop() {
+      width: 100%;
     }
   }
 }

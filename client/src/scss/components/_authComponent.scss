@@ -112,6 +112,10 @@
     @include tablet() {
       padding: 2rem 3rem;
     }
+
+    @include desktop() {
+      max-width: 40rem;
+    }
   }
 
   @include tablet() {
@@ -126,5 +130,11 @@
   @include tablet() {
     margin-top: 8rem;
     width: 50%;
+  }
+
+  @include desktop() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

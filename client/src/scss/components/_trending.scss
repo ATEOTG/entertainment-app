@@ -3,6 +3,12 @@
   gap: 1.7rem;
   overflow: scroll;
   margin-bottom: 2.5rem;
+
+  @include desktop() {
+    overflow: auto;
+    width: 92vw;
+    scrollbar-width: thin;
+  }
 }
 
 .trending-comp {

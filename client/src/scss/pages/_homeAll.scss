@@ -15,4 +15,10 @@
   @include tablet() {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @include desktop() {
+    max-width: 137.4rem;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 3rem;
+  }
 }

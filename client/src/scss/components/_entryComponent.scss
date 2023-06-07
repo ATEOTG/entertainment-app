@@ -8,6 +8,10 @@
     @include tablet() {
       width: 22rem;
     }
+
+    @include desktop() {
+      width: 28rem;
+    }
   }
   .entry-img {
     @include borderRadius;
@@ -18,10 +22,18 @@
       width: 100%;
       height: 14rem;
     }
+
+    @include desktop() {
+      height: 17.4rem;
+    }
   }
 
   @include tablet() {
     height: 14.2rem;
+  }
+
+  @include desktop() {
+    height: 17rem;
   }
 }
 
@@ -30,5 +42,18 @@
 
   .entry-information {
     margin-left: 0rem;
+
+    ul {
+      p {
+        @include desktop() {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    &__title {
+      @include desktop() {
+        font-size: 1.8rem;
+      }
+    }
   }
 }

@@ -6,24 +6,52 @@
   background-color: $primary-semi-dark-blue;
   padding: 1.5rem;
 
+  &__desktop {
+    display: flex;
+    width: 72%;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet() {
+      width: 61%;
+    }
+
+    @include desktop() {
+      flex-direction: column;
+      gap: 6rem;
+    }
+  }
+
   ul {
     @include flexHorizontal;
     gap: 2.5rem;
     list-style: none;
+
+    li {
+      @include desktop() {
+        &:hover {
+          path {
+            transition: 0.2s;
+            fill: $primary-red;
+          }
+        }
+      }
+    }
+    @include desktop() {
+      flex-direction: column;
+      gap: 3.5rem;
+    }
   }
   .avatar-circle {
     position: relative;
-    width: 2.4rem;
-    height: 2.4rem;
-    background-color: $primary-white;
-    border-radius: 50%;
+    width: 3.2rem;
+    height: 3.2rem;
 
     .menu-cont {
       position: absolute;
       bottom: 0;
-      left: 0;
-      transform: translate(-40%, 120%);
+      left: -80%;
       .access-button {
+        width: 5.9rem;
         border-radius: 0.5rem;
         padding: 1rem;
         font-size: 1.2rem;
@@ -31,6 +59,19 @@
         border: none;
         color: $primary-white;
         cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+          color: black;
+          background-color: $primary-white;
+        }
+      }
+
+      @include tablet() {
+        left: -100%;
+      }
+
+      @include desktop() {
+        left: -35%;
       }
     }
   }
@@ -39,6 +80,14 @@
     @include marginCenter;
     @include borderRadius;
     margin-top: 1.5rem;
+  }
+
+  @include desktop() {
+    flex-direction: column;
+    max-width: 9.1rem;
+    padding: 3rem;
+    height: 95vh;
+    margin-left: 2rem;
   }
 }
 
