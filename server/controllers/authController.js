@@ -15,7 +15,7 @@ exports.createSendToken = (user, statusCode, req, res) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: false,
-    security: false,
+    secure: false,
     sameSite: "none",
   };
 
@@ -80,6 +80,9 @@ exports.isLoggedIn = async (req, res, next) => {
 exports.logout = (req, res) => {
   res.cookie("jwt", "loggedout", {
     expires: new Date(Date.now() + 10 * 1000),
+    sameSite: "none",
+    httpOnly: false,
+    secure: false,
   });
 
   res.status(200).json({
