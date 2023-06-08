@@ -16,7 +16,7 @@ exports.createSendToken = (user, statusCode, req, res) => {
     ),
     httpOnly: false,
     secure: false,
-    sameSite: "none",
+    sameSite: false,
   };
 
   res.cookie("jwt", token, cookieOptions);
