@@ -12,7 +12,7 @@ const userRouter = require("./routes/userRoutes");
 const app = express();
 app.use(
   cors({
-    origin: "https://main--stellar-buttercream-b90578.netlify.app",
+    origin: "https://stellar-buttercream-b90578.netlify.app",
     credentials: true,
   })
 );
