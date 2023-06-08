@@ -17,17 +17,9 @@ exports.createSendToken = (user, statusCode, req, res) => {
     httpOnly: false,
   };
 
-  res.cookie("jwt", token, cookieOptions);
-  console.log(req.cookies);
   user.password = undefined;
 
-  res.status(statusCode).json({
-    status: "success",
-    token,
-    data: {
-      user,
-    },
-  });
+  res.status(statusCode).cookie("jwt", token, cookieOptions).send();
 };
 
 exports.protect = async (req, res, next) => {
