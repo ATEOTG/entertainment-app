@@ -26,7 +26,6 @@ exports.createSendToken = (user, statusCode, req, res) => {
     httpOnly: false,
     secure: true,
     samesite: "None",
-    domain: "ateotg-entertainment-app.netlify.app",
   });
   user.password = undefined;
 
