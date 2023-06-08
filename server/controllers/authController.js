@@ -16,7 +16,6 @@ exports.createSendToken = (user, statusCode, req, res) => {
     ),
     httpOnly: false,
     security: false,
-    sameSite: "lax",
   };
 
   res.cookie("jwt", token, cookieOptions);
