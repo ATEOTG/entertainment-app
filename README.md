@@ -2,6 +2,8 @@
 
 This is a responsive website application that catalogs movie/television shows and allows users to search for them and sign up and bookmark their favorite television shows and movies.
 
+Deployed App: https://ateotg-entertainment-app.netlify.app
+
 ## Table of contents
 
 - [Overview](#overview)
