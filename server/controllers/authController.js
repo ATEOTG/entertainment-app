@@ -26,6 +26,7 @@ exports.createSendToken = (user, statusCode, req, res) => {
     httpOnly: false,
     secure,
     sameSite: "none",
+    secure: true,
   });
   user.password = undefined;
 
@@ -96,7 +97,7 @@ exports.logout = (req, res) => {
     expires: new Date(Date.now() + 10 * 1000),
     sameSite: "none",
     httpOnly: false,
-    secure,
+    secure: true,
   });
 
   res.status(200).json({
