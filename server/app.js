@@ -10,15 +10,14 @@ const mediaEntryRouter = require("./routes/mediaEntryRoutes");
 const userRouter = require("./routes/userRoutes");
 
 const app = express();
+
+app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://stellar-buttercream-b90578.netlify.app",
+    origin: "https://ateotg-entertainment-app.netlify.app",
     credentials: true,
   })
 );
-app.enable("trust proxy");
-
-app.set("trust proxy", 1);
 
 app.use(helmet());
 app.use(express.json());

@@ -26,6 +26,7 @@ exports.createSendToken = (user, statusCode, req, res) => {
     httpOnly: false,
     secure: true,
     samesite: "None",
+    domain: ".ateotg-entertainment-app.netlify.app",
   });
   user.password = undefined;
 
@@ -97,6 +98,7 @@ exports.logout = (req, res) => {
     sameSite: "None",
     httpOnly: false,
     secure: false,
+    domain: ".ateotg-entertainment-app.netlify.app",
   });
 
   res.status(200).json({
