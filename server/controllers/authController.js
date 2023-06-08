@@ -16,7 +16,7 @@ exports.createSendToken = (user, statusCode, req, res) => {
     ),
     httpOnly: false,
     secure: true,
-    sameSite: false,
+    SameSite: "None",
   };
 
   res.cookie("jwt", token, cookieOptions);
@@ -87,7 +87,7 @@ exports.isLoggedIn = async (req, res, next) => {
 exports.logout = (req, res) => {
   res.cookie("jwt", "loggedout", {
     expires: new Date(Date.now() + 10 * 1000),
-    sameSite: "none",
+    SameSite: "None",
     httpOnly: false,
     secure: false,
   });
