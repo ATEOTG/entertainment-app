@@ -37,12 +37,12 @@ async function initGetMediaData(
   const length = data.data.length;
   if (user) userInitBookmark(data.data, user);
   if (searchString.trim() === "") {
-    if (url === "https://ent-app.onrender.com/api/v1/entries/bookmarked") {
+    if (url === "/api/v1/entries/bookmarked") {
       data.data = data.data.filter((el: EntryObject) => el.isBookmarked);
     }
     setState({ entry: data.data, length, user });
   } else {
-    if (url === "https://ent-app.onrender.com/api/v1/entries/bookmarked") {
+    if (url === "/api/v1/entries/bookmarked") {
       data.data = data.data.filter((el: EntryObject) => el.isBookmarked);
     }
     data.data = data.data.filter((el: EntryObject) =>
@@ -106,58 +106,30 @@ function Home() {
     event.preventDefault();
     const enteredText = textInputRef.current!.value;
     if (path === "/home/all")
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries",
-        enteredText,
-        setMediaData
-      );
+      initGetMediaData("/api/v1/entries", enteredText, setMediaData);
     else if (path === "/home/movies")
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/movie",
-        enteredText,
-        setMovieData
-      );
+      initGetMediaData("/api/v1/entries/movie", enteredText, setMovieData);
     else if (path === "/home/television")
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/tv",
-        enteredText,
-        setTvData
-      );
+      initGetMediaData("/api/v1/entries/tv", enteredText, setTvData);
     else if (path === "/home/bookmark")
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/bookmarked",
+        "/api/v1/entries/bookmarked",
         enteredText,
         setBookmarkData
       );
   }
   useEffect(() => {
     if (path === "/home/all") {
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries",
-        "",
-        setMediaData
-      );
+      initGetMediaData("/api/v1/entries", "", setMediaData);
       textInputRef.current!.value = "";
     } else if (path === "/home/movies") {
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/movie",
-        "",
-        setMovieData
-      );
+      initGetMediaData("/api/v1/entries/movie", "", setMovieData);
       textInputRef.current!.value = "";
     } else if (path === "/home/television") {
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/tv",
-        "",
-        setTvData
-      );
+      initGetMediaData("/api/v1/entries/tv", "", setTvData);
       textInputRef.current!.value = "";
     } else if (path === "/home/bookmark") {
-      initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/bookmarked",
-        "",
-        setBookmarkData
-      );
+      initGetMediaData("/api/v1/entries/bookmarked", "", setBookmarkData);
       textInputRef.current!.value = "";
     }
   }, [path]);
