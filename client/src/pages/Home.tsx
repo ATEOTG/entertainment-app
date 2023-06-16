@@ -161,6 +161,14 @@ function Home() {
       textInputRef.current!.value = "";
     }
   }, [path]);
+
+  useEffect(() => {
+    initGetMediaData(
+      "https://ent-app.onrender.com/api/v1/entries",
+      "",
+      setMediaData
+    );
+  }, []);
   return (
     <div className="home-cont">
       <Navigation isLoggedIn={isLoggedIn} />
