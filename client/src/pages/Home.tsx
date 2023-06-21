@@ -33,6 +33,7 @@ async function initGetMediaData(
     },
   });
   const data = await response.json();
+  console.log("URL:", url, "DATA:", data);
   const user = data.user ? data.user : { _id: "", email: "", bookmarked: [] };
   const length = data.data.length;
   if (user) userInitBookmark(data.data, user);
@@ -162,13 +163,6 @@ function Home() {
     }
   }, [path]);
 
-  useEffect(() => {
-    initGetMediaData(
-      "https://ent-app.onrender.com/api/v1/entries",
-      "",
-      setMediaData
-    );
-  }, []);
   return (
     <div className="home-cont">
       <Navigation isLoggedIn={isLoggedIn} />
