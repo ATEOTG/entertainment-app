@@ -24,6 +24,7 @@ async function initGetMediaData(
   searchValue: string,
   setState: Function
 ) {
+  console.log("url:", url);
   const searchString = searchValue.toLowerCase();
   const response = await fetch(url, {
     credentials: "include",
@@ -33,7 +34,6 @@ async function initGetMediaData(
     },
   });
   const data = await response.json();
-  console.log("URL:", url, "DATA:", data);
   const user = data.user ? data.user : { _id: "", email: "", bookmarked: [] };
   const length = data.data.length;
   if (user) userInitBookmark(data.data, user);
@@ -138,29 +138,26 @@ function Home() {
         "",
         setMediaData
       );
-      textInputRef.current!.value = "";
     } else if (path === "/home/movies") {
       initGetMediaData(
         "https://ent-app.onrender.com/api/v1/entries/movie",
         "",
         setMovieData
       );
-      textInputRef.current!.value = "";
     } else if (path === "/home/television") {
       initGetMediaData(
         "https://ent-app.onrender.com/api/v1/entries/tv",
         "",
         setTvData
       );
-      textInputRef.current!.value = "";
     } else if (path === "/home/bookmark") {
       initGetMediaData(
         "https://ent-app.onrender.com/api/v1/entries/bookmarked",
         "",
         setBookmarkData
       );
-      textInputRef.current!.value = "";
     }
+    textInputRef.current!.value = "";
   }, [path]);
 
   return (
