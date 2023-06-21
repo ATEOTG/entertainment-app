@@ -62,7 +62,6 @@ exports.protect = async (req, res, next) => {
 };
 
 exports.isLoggedIn = async (req, res, next) => {
-  console.log(req.cookies);
   if (req.cookies.jwt) {
     try {
       const decoded = await promisify(jwt.verify)(
