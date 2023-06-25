@@ -37,7 +37,7 @@ function AuthComponent(props: AuthComponentProps) {
   ) {
     try {
       const response = await fetch(
-        "https://ent-app.onrender.com/api/v1/users/signup",
+        "https://entertainment-app-api.vercel.app/api/v1/users/signup",
         {
           headers: {
             Accept: "application/json",
@@ -75,7 +75,7 @@ function AuthComponent(props: AuthComponentProps) {
   async function loginHandler(emailValue: string, passwordValue: string) {
     try {
       const response = await fetch(
-        "https://ent-app.onrender.com/api/v1/users/login",
+        "https://entertainment-app-api.vercel.app/api/v1/users/login",
         {
           headers: {
             Accept: "application/json",

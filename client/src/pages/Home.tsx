@@ -38,12 +38,18 @@ async function initGetMediaData(
   const length = data.data.length;
   if (user) userInitBookmark(data.data, user);
   if (searchString.trim() === "") {
-    if (url === "https://ent-app.onrender.com/api/v1/entries/bookmarked") {
+    if (
+      url ===
+      "https://entertainment-app-api.vercel.app/api/v1/entries/bookmarked"
+    ) {
       data.data = data.data.filter((el: EntryObject) => el.isBookmarked);
     }
     setState({ entry: data.data, length, user });
   } else {
-    if (url === "https://ent-app.onrender.com/api/v1/entries/bookmarked") {
+    if (
+      url ===
+      "https://entertainment-app-api.vercel.app/api/v1/entries/bookmarked"
+    ) {
       data.data = data.data.filter((el: EntryObject) => el.isBookmarked);
     }
     data.data = data.data.filter((el: EntryObject) =>
@@ -108,25 +114,25 @@ function Home() {
     const enteredText = textInputRef.current!.value;
     if (path === "/home/all")
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries",
+        "https://entertainment-app-api.vercel.app/api/v1/entries",
         enteredText,
         setMediaData
       );
     else if (path === "/home/movies")
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/movie",
+        "https://entertainment-app-api.vercel.app/api/v1/entries/movie",
         enteredText,
         setMovieData
       );
     else if (path === "/home/television")
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/tv",
+        "https://entertainment-app-api.vercel.app/api/v1/entries/tv",
         enteredText,
         setTvData
       );
     else if (path === "/home/bookmark")
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/bookmarked",
+        "https://entertainment-app-api.vercel.app/api/v1/entries/bookmarked",
         enteredText,
         setBookmarkData
       );
@@ -134,25 +140,25 @@ function Home() {
   useEffect(() => {
     if (path === "/home/all") {
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries",
+        "https://entertainment-app-api.vercel.app/api/v1/entries",
         "",
         setMediaData
       );
     } else if (path === "/home/movies") {
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/movie",
+        "https://entertainment-app-api.vercel.app/api/v1/entries/movie",
         "",
         setMovieData
       );
     } else if (path === "/home/television") {
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/tv",
+        "https://entertainment-app-api.vercel.app/api/v1/entries/tv",
         "",
         setTvData
       );
     } else if (path === "/home/bookmark") {
       initGetMediaData(
-        "https://ent-app.onrender.com/api/v1/entries/bookmarked",
+        "https://entertainment-app-api.vercel.app/api/v1/entries/bookmarked",
         "",
         setBookmarkData
       );
