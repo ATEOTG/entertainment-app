@@ -13,7 +13,7 @@ async function updateIsBookmark(
 ) {
   try {
     await fetch(
-      `https://ent-app.onrender.com/api/v1/entries/bookmarked/${id}`,
+      `https://entertainment-app-api.vercel.app/api/v1/entries/bookmarked/${id}`,
       {
         headers: {
           Accept: "application/json",
