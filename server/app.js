@@ -14,7 +14,7 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://ateotg-entertainment-app.netlify.app",
+    origin: "https://entertainment-app-frontend.vercel.app",
     credentials: true,
   })
 );
