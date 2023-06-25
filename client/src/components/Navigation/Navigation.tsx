@@ -16,9 +16,12 @@ function Navigation(props: NavigationProps) {
 
   async function logoutHandler() {
     try {
-      await fetch("https://ent-app.onrender.com/api/v1/users/logout", {
-        credentials: "include",
-      });
+      await fetch(
+        "https://entertainment-app-api.vercel.app/api/v1/users/logout",
+        {
+          credentials: "include",
+        }
+      );
       navigate("/", { replace: true });
       setIsLoggedIn(false);
     } catch (err) {}
