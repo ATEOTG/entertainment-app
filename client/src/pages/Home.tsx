@@ -24,7 +24,6 @@ async function initGetMediaData(
   searchValue: string,
   setState: Function
 ) {
-  console.log("url:", url);
   const searchString = searchValue.toLowerCase();
   const response = await fetch(url, {
     credentials: "include",
