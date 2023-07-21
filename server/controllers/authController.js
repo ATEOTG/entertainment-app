@@ -16,7 +16,7 @@ exports.createSendToken = (user, statusCode, req, res) => {
     ),
     httpOnly: false,
     secure: true,
-    sameSite: "none",
+    sameSite: "strict",
   };
 
   res.cookie("jwt", token, cookieOptions);
@@ -29,36 +29,6 @@ exports.createSendToken = (user, statusCode, req, res) => {
       user,
     },
   });
-};
-
-exports.protect = async (req, res, next) => {
-  try {
-    let token;
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")
-    )
-      token = req.headers.authorization.split(" ")[1];
-    else if (req.cookies.jwt) token = req.cookies.jwt;
-    if (!token) {
-      return next(new Error("You are not logged in. Log in to get access"));
-    }
-
-    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-
-    const currentUser = await User.findById(decoded.id);
-    if (!currentUser) {
-      return next(
-        new Error("The user belonging to this token no longer exists.")
-      );
-    }
-
-    req.user = currentUser;
-    res.locals.user = currentUser;
-    next();
-  } catch (err) {
-    next(new Error(err.message));
-  }
 };
 
 exports.isLoggedIn = async (req, res, next) => {
@@ -86,7 +56,7 @@ exports.isLoggedIn = async (req, res, next) => {
 exports.logout = (req, res) => {
   res.cookie("jwt", "loggedout", {
     expires: new Date(Date.now() + 10 * 1000),
-    sameSite: "none",
+    sameSite: "strict",
     httpOnly: false,
     secure: true,
   });
