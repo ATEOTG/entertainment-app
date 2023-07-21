@@ -14,7 +14,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://entertainment-app-frontend.vercel.app",
-    credentials: true,
+    // credentials: true,
   })
 );
 
