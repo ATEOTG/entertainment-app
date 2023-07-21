@@ -29,7 +29,6 @@ async function initGetMediaData(
     credentials: "include",
     headers: {
       Accept: "application/json",
-      "Content-type": "application/json",
     },
   });
   const data = await response.json();
