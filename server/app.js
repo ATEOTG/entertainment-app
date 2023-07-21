@@ -11,7 +11,6 @@ const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
-app.set("trust proxy", 1);
 app.use(
   cors({
     origin: "https://entertainment-app-frontend.vercel.app",
